@@ -96,7 +96,7 @@ public class TestPlayer : MonoBehaviour
                 var currentMinion = GetCurrentMinion;
                 if (currentMinion != null)
                 {
-                    GetCurrentMinion.Build(position, 1f + BuildIndex.CurrentData);
+                    GetCurrentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
                     BuildIndex.CurrentData = 0;
                 }
             }

@@ -46,23 +46,24 @@ public class TestMinion : MonoBehaviour
         Agent.SetDestination(obj.position);
     }
 
-    public void Build(Vector2 position, float time)
+    public void Build(int index, Vector2 position, float time)
     {
-        BuildWrapper.Start(BuildTarget(position, time));
+        BuildWrapper.Start(BuildTarget(index, position, time));
+
+        IEnumerator BuildTarget(int idx, Vector2 pos, float t)
+        {
+            var obj = Instantiate(BuildObjects[idx - 1]);
+            obj.transform.position = pos.ToVector3FromXZ().Round(1);
+            obj.SetActive(false);
+            MoveTargetNotifier.CurrentData = obj.transform;
+            isBuilding = true;
+
+            yield return new WaitForSeconds(t);
+            MoveTargetNotifier.CurrentData = PlayerProbe;
+            obj.SetActive(true);
+            isBuilding = false;
+        }
     }
 
-    IEnumerator BuildTarget(Vector2 position, float time)
-    {
-        var obj = Instantiate(BuildObjects[0]);
-        obj.transform.position = position.ToVector3FromXZ().Round(1);
-        obj.SetActive(false);
-        MoveTargetNotifier.CurrentData = obj.transform;
-        isBuilding = true;
-
-        yield return new WaitForSeconds(time);
-        MoveTargetNotifier.CurrentData = PlayerProbe;
-        obj.SetActive(true);
-        isBuilding = false;
-    }
 
 }
