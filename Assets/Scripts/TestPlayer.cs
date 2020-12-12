@@ -93,8 +93,12 @@ public class TestPlayer : MonoBehaviour
                 var position = InputManager.Instance.MouseWorldXZ.CurrentData;
                 var pos = Input.mousePosition;
 
-                GetCurrentMinion.Build(position, 1f + BuildIndex.CurrentData);
-                BuildIndex.CurrentData = 0;
+                var currentMinion = GetCurrentMinion;
+                if (currentMinion != null)
+                {
+                    GetCurrentMinion.Build(position, 1f + BuildIndex.CurrentData);
+                    BuildIndex.CurrentData = 0;
+                }
             }
         }
 

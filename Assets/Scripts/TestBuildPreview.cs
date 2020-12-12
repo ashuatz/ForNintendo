@@ -40,7 +40,9 @@ public class TestBuildPreview : MonoBehaviour
     private void OnDestroy()
     {
         player.BuildIndex.OnDataChanged -= BuildIndex_OnDataChanged;
-        InputManager.Instance.MouseWorldXZ.OnDataChanged -= MouseWorldXZ_OnDataChanged;
+
+        if (!InputManager.ApplicationIsQuitting)
+            InputManager.Instance.MouseWorldXZ.OnDataChanged -= MouseWorldXZ_OnDataChanged;
     }
 
 }
