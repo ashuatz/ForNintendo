@@ -8,6 +8,9 @@ using Util;
 public class TestPlayer : MonoBehaviour
 {
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private Transform Target;
 
     [SerializeField]
@@ -27,6 +30,7 @@ public class TestPlayer : MonoBehaviour
 
     private void Start()
     {
+        animator.speed = 0.85f;
         markerRoutine = CoroutineWrapper.Generate(this);
 
         //GetComponent<NavMeshAgent>().SetDestination(Target.position);
@@ -51,6 +55,15 @@ public class TestPlayer : MonoBehaviour
     void Update()
     {
         PlayerInput();
+        Animation();
+
+        void Animation()
+        {
+            if(Agent.velocity.magnitude>0.1f)
+            {
+
+            }
+        }
     }
 
 
