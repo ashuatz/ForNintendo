@@ -164,8 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyType: 1
+  Damage: 10
+  AttackDelay: 0.5
   animator: {fileID: 2036681078759618238}
-  Target: {fileID: 0}
   Agent: {fileID: 8576063548635233806}
   Marker: {fileID: 0}
   Minions:

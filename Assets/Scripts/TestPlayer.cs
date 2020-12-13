@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,23 +8,35 @@ using Util;
 
 public class TestPlayer : TestEntity
 {
+
+
+    [Header("Attak Property")]
+    [SerializeField]
+    private float Damage;
+    [SerializeField]
+    private float AttackDelay;
+    private float LastAttackTime;
+
+    [Header("Pre-defined Property")]
     [SerializeField]
     private Animator animator;
-
-    [SerializeField]
-    private Transform Target;
 
     [SerializeField]
     private NavMeshAgent Agent;
 
     [SerializeField]
     private GameObject Marker;
-    
+
     [SerializeField]
     private List<TestMinion> Minions;
+
     public TestMinion GetCurrentMinion { get => Minions.Find(minion => minion.isOrderAvailable); }
 
     public Notifier<int> BuildIndex = new Notifier<int>();
+
+    public event Action OnShot;
+
+
 
     private CoroutineWrapper markerRoutine;
     private float time = 0;
@@ -112,6 +125,38 @@ public class TestPlayer : TestEntity
                     GetCurrentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
                     BuildIndex.CurrentData = 0;
                 }
+            }
+            else
+            {
+                if (LastAttackTime + AttackDelay < Time.time)
+                {
+                    LastAttackTime = Time.time;
+
+                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
+
+                    var dir = position - transform.position.ToXZ();
+
+                    var hits = Physics.RaycastAll(transform.position, dir.ToVector3FromXZ());
+                    var entities = hits
+                        .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
+                        .Where(entity => entity != null)
+                        .Where(entity => entity.Type == EntityType.Enemy).ToList();
+
+                    if (entities != null && entities.Count > 0)
+                    {
+                        var target = entities.First();
+                        var info = new HitInfo();
+                        info.Amount = Damage;
+                        info.Origin = this;
+                        info.Destination = target;
+                        info.hitDir = dir.ToVector3FromXZ();
+
+                        target.TakeDamage(info);
+                    }
+
+                    OnShot?.Invoke();
+                }
+
             }
         }
 

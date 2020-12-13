@@ -15,8 +15,9 @@ public class InputManager : MonoSingleton<InputManager>
 
         var ray = Camera.main.ScreenPointToRay(MousePosition);
 
-        if (Physics.Raycast(ray, out var hit))
+        if (Physics.Raycast(ray, out var hit, 50 ,1 << LayerMask.NameToLayer("Ground")))
         {
+            Debug.Log("Hit : " + hit.transform.name);
             WorldXZPosition = hit.point.ToXZ();
             return true;
         }

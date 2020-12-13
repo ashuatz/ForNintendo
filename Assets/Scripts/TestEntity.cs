@@ -17,27 +17,23 @@ public class TestEntity : MonoBehaviour
 
     [SerializeField]
     protected EntityType MyType;
-
+    public EntityType Type { get => MyType; }
     public Notifier<float> HP = new Notifier<float>();
 
-    public event Action<float> OnHit;
+    public event Action<HitInfo> OnHit;
     public event Action OnDead;
 
-    protected virtual void TakeDamage(float Amount)
+
+    public virtual void TakeDamage(HitInfo info)
     {
-        HP.CurrentData -= Amount;
-        OnHit?.Invoke(Amount);
+        HP.CurrentData -= info.Amount;
+        OnHit?.Invoke(info);
 
         if (HP.CurrentData < 0)
         {
             Dead();
             OnDead?.Invoke();
         }
-    }
-
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-
     }
 
     protected virtual void Dead()
