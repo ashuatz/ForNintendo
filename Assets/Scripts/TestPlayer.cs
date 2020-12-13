@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Util;
 
-public class TestPlayer : MonoBehaviour
+public class TestPlayer : TestEntity
 {
     [SerializeField]
     private Animator animator;
@@ -59,7 +59,7 @@ public class TestPlayer : MonoBehaviour
 
         void Animation()
         {
-            if(Agent.velocity.magnitude>0.1f)
+            if (Agent.velocity.magnitude > 0.1f)
             {
 
             }

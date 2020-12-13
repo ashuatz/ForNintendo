@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Util;
 
-public class TestMinion : MonoBehaviour
+public class TestMinion : TestEntity
 {
     [SerializeField]
     private NavMeshAgent Agent;

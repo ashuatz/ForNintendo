@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Util;
 
 
-public class TestEnemy : MonoBehaviour
+public class TestEnemy : TestEntity
 {
     [SerializeField]
     private NavMeshAgent Agent;

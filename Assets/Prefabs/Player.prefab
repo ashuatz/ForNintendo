@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392cfae26d05a7441b717731d8f8e76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyType: 1
   animator: {fileID: 2036681078759618238}
   Target: {fileID: 0}
   Agent: {fileID: 8576063548635233806}

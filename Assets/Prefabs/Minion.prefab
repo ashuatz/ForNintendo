@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f8abb7754559a4b9ecd6e90e416463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyType: 1
   Agent: {fileID: 991391542464373700}
   PlayerProbe: {fileID: 0}
   BuildObjects:
