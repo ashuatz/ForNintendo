@@ -7,6 +7,8 @@ using Util;
 public class TestMinion : TestEntity
 {
     [SerializeField]
+    private float DefaultHP;
+    [SerializeField]
     private NavMeshAgent Agent;
 
     [SerializeField]
@@ -27,6 +29,8 @@ public class TestMinion : TestEntity
 
     private void Awake()
     {
+        HP.CurrentData = DefaultHP;
+
         BuildWrapper = new CoroutineWrapper(this);
         MoveTargetNotifier = new NotifierClass<Transform>();
         MoveTargetNotifier.CurrentData = PlayerProbe;

@@ -10,6 +10,9 @@ public class TestPlayer : TestEntity
 {
 
 
+    [SerializeField]
+    private float DefaultHP;
+
     [Header("Attak Property")]
     [SerializeField]
     private float Damage;
@@ -43,6 +46,7 @@ public class TestPlayer : TestEntity
 
     private void Start()
     {
+        HP.CurrentData = DefaultHP;
         animator.speed = 0.85f;
         markerRoutine = CoroutineWrapper.Generate(this);
 
@@ -136,7 +140,7 @@ public class TestPlayer : TestEntity
 
                     var dir = position - transform.position.ToXZ();
 
-                    var hits = Physics.RaycastAll(transform.position, dir.ToVector3FromXZ());
+                    var hits = Physics.RaycastAll(transform.position, dir.ToVector3FromXZ(), 50, ~(1 << LayerMask.NameToLayer("Detector")));
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
                         .Where(entity => entity != null)

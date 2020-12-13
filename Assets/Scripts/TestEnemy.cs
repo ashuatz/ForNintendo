@@ -7,6 +7,28 @@ using Util;
 
 public class TestEnemy : TestEntity
 {
+
+    public class EntityComparer : IComparer<TestEntity>
+    {
+        public int Compare(TestEntity x, TestEntity y)
+        {
+            return GetValueByType(x).CompareTo(GetValueByType(y));
+        }
+
+        private int GetValueByType(TestEntity entity)
+        {
+            switch (entity)
+            {
+                case TestNPC n: return 0;
+                case TestStructure s: return 1;
+                case TestPlayer p: return 2;
+                case TestMinion m: return 3;
+
+                default: return 5;
+            }
+        }
+    }
+
     [SerializeField]
     private NavMeshAgent Agent;
 
@@ -18,11 +40,22 @@ public class TestEnemy : TestEntity
 
     [SerializeField]
     private float AttackRange;
+    [SerializeField]
+    private float AttackDamage;
+    [SerializeField]
+    private float AttackPerSecond;
 
     [SerializeField]
     private Transform PlayerTransformForTest;
 
+    [SerializeField]
+    private CollisionEventRiser Detector;
+
     private CoroutineWrapper HitWrapper;
+
+    private List<TestEntity> Targets = new List<TestEntity>();
+
+    private EntityComparer comparer = new EntityComparer();
 
     public NotifierClass<Transform> AttackTarget = new NotifierClass<Transform>();
 
@@ -37,6 +70,49 @@ public class TestEnemy : TestEntity
         AttackTarget.CurrentData = PlayerTransformForTest;
 
         AttackTarget.OnDataChanged += AttackTarget_OnDataChanged;
+
+        Detector.OnTriggerEnterEvent += OnTriggerEnterListener;
+        Detector.OnTriggerExitEvent += OnTriggerExitListener;
+    }
+
+    private IEnumerator Start()
+    {
+        List<TestEntity> removeList = new List<TestEntity>();
+
+        while (HP.CurrentData > 0)
+        {
+            Targets.Sort(comparer);
+            foreach (var target in Targets)
+            {
+                if (!target.gameObject.activeInHierarchy)
+                {
+                    removeList.Add(target);
+                    continue;
+                }
+                if (target.HP.CurrentData <= 0)
+                {
+                    removeList.Add(target);
+                    continue;
+                }
+
+                var dir = (target.transform.position.ToXZ() - transform.position.ToXZ()).normalized;
+                var info = new HitInfo();
+                info.Amount = AttackDamage;
+                info.Origin = this;
+                info.Destination = target;
+                info.hitDir = dir.ToVector3FromXZ();
+
+                target.TakeDamage(info);
+                break;
+            }
+
+            foreach (var removeItem in removeList)
+            {
+                Targets.Remove(removeItem);
+            }
+
+            yield return YieldInstructionCache.WaitForSeconds(1 / AttackPerSecond);
+        }
     }
 
     private void TestEnemy_OnHit(HitInfo info)
@@ -67,6 +143,25 @@ public class TestEnemy : TestEntity
         Agent.SetDestination(obj.position);
     }
 
+    private void OnTriggerEnterListener(Collider other)
+    {
+
+        if (other.TryGetComponent<TestEntity>(out var entity))
+        {
+            if (entity.Type == EntityType.Player)
+                Targets.Add(entity);
+        }
+    }
+
+    private void OnTriggerExitListener(Collider other)
+    {
+        if (other.TryGetComponent<TestEntity>(out var entity))
+        {
+            if (entity.Type == EntityType.Player)
+                Targets.Remove(entity);
+        }
+    }
+
     private void Update()
     {
         if (AttackTarget.CurrentData != null)
@@ -78,6 +173,9 @@ public class TestEnemy : TestEntity
     private void OnDestroy()
     {
         AttackTarget.OnDataChanged -= AttackTarget_OnDataChanged;
+
+        Detector.OnTriggerEnterEvent -= OnTriggerEnterListener;
+        Detector.OnTriggerExitEvent -= OnTriggerExitListener;
     }
 
 }

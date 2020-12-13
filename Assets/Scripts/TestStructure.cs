@@ -45,6 +45,12 @@ public class TestStructure : TestEntity
     {
         CurrentData = Datas.Find(data => data.Type == myType);
 
+        HP.CurrentData = CurrentData.DefaultHP;
+
+        var riser = Detector.GetComponent<CollisionEventRiser>();
+        riser.OnTriggerEnterEvent += OnTriggerEnterListener;
+        riser.OnTriggerExitEvent += OnTriggerExitListener;
+
         Detector.radius = CurrentData.AttackRange;
         Detector.isTrigger = true;
     }
@@ -55,12 +61,17 @@ public class TestStructure : TestEntity
 
         while (enabled)
         {
-
             foreach (var target in Targets)
             {
                 if (!target.gameObject.activeInHierarchy)
                 {
                     removeList.Add(target);
+                    continue;
+                }
+                if (target.HP.CurrentData <= 0)
+                {
+                    removeList.Add(target);
+                    continue;
                 }
 
 
@@ -86,7 +97,7 @@ public class TestStructure : TestEntity
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnterListener(Collider other)
     {
         if (other.TryGetComponent<TestEntity>(out var entity))
         {
@@ -96,12 +107,19 @@ public class TestStructure : TestEntity
     }
 
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExitListener(Collider other)
     {
         if (other.TryGetComponent<TestEntity>(out var entity))
-        {   
+        {
             if (entity.Type == EntityType.Enemy)
                 Targets.Add(entity);
         }
+    }
+
+    private void OnDestroy()
+    {
+        var riser = Detector.GetComponent<CollisionEventRiser>();
+        riser.OnTriggerEnterEvent -= OnTriggerEnterListener;
+        riser.OnTriggerExitEvent -= OnTriggerExitListener;
     }
 }
