@@ -112,7 +112,7 @@ public class TestStructure : TestEntity
         if (other.TryGetComponent<TestEntity>(out var entity))
         {
             if (entity.Type == EntityType.Enemy)
-                Targets.Add(entity);
+                Targets.Remove(entity);
         }
     }
 
