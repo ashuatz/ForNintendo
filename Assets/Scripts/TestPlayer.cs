@@ -140,7 +140,7 @@ public class TestPlayer : TestEntity
 
                     var dir = position - transform.position.ToXZ();
 
-                    var hits = Physics.RaycastAll(transform.position, dir.ToVector3FromXZ(), 50, ~(1 << LayerMask.NameToLayer("Detector")));
+                    var hits = Physics.RaycastAll(transform.position.ToXZ().ToVector3FromXZ(), dir.ToVector3FromXZ(), 50, 1 << LayerMask.NameToLayer("Default"));
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
                         .Where(entity => entity != null && entity.Type == EntityType.Enemy).ToList();

@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class TestNPC : TestEntity
 {
+    [SerializeField]
+    private float DefaultHP;
 
-    // Use this for initialization
-    void Start()
+    [SerializeField]
+    private NavMeshAgent Agent;
+
+    [SerializeField]
+    private Transform TargetWaypointProbe;
+
+    private void Awake()
     {
-
+        HP.CurrentData = DefaultHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        Agent.SetDestination(TargetWaypointProbe.position);
     }
 }
