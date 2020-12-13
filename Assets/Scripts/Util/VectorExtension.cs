@@ -8,6 +8,8 @@ namespace Util
     {
         public static float Remap(this float value, in (float, float) input, in (float, float) output) => input.Item2 + (output.Item2 - input.Item2) * ((value - input.Item1) / (output.Item1 - input.Item1));
 
+        public static Vector2 GetRandom(this in Vector4 vector) => new Vector2(Random.Range(vector.x, vector.z), Random.Range(vector.y, vector.w));
+
         public static Vector2 ToXZ(this in Vector3 vector) => new Vector2(vector.x, vector.z);
         public static Vector2 ToVector2(this in Vector3 vector) => vector;
         public static Vector3 ToVector3(this in Vector2 vector) => vector;
