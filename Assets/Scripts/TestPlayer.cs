@@ -76,10 +76,7 @@ public class TestPlayer : TestEntity
 
         void Animation()
         {
-            if (Agent.velocity.magnitude > 0.1f)
-            {
-
-            }
+            animator.SetBool("Run", Agent.velocity.magnitude > 0.1f);
         }
     }
 
