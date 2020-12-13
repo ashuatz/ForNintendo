@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 3df5a57c2b80deb42a8cc43bc1fdf69f
+guid: 97b86e41f0f33b5448aef81435f26df3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 2370106663314025595
-    second: Overhit-arin_Run02_Physics
+      74: 9221833390710140273
+    second: DummyChar_Run
   externalObjects: {}
   materials:
     materialImportMode: 1
