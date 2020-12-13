@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 9df1e742e5d63b34fbf15460f9f33714
+guid: 6091b8bae1dc9644c83d5f7d5bc8e0bc
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 4828706983449722958
-    second: DummyChar_BasePose
+      74: 5145230180644460715
+    second: Char_Rig_BasePose
   externalObjects: {}
   materials:
     materialImportMode: 1
