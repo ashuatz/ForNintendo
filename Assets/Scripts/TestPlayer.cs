@@ -143,8 +143,7 @@ public class TestPlayer : TestEntity
                     var hits = Physics.RaycastAll(transform.position, dir.ToVector3FromXZ(), 50, ~(1 << LayerMask.NameToLayer("Detector")));
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
-                        .Where(entity => entity != null)
-                        .Where(entity => entity.Type == EntityType.Enemy).ToList();
+                        .Where(entity => entity != null && entity.Type == EntityType.Enemy).ToList();
 
                     if (entities != null && entities.Count > 0)
                     {
