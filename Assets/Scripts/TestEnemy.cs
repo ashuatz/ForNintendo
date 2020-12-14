@@ -36,6 +36,9 @@ public class TestEnemy : TestEntity
     private Animator Animator;
 
     [SerializeField]
+    private int myType;
+
+    [SerializeField]
     private float DefaultHP;
 
     [SerializeField]
@@ -50,6 +53,8 @@ public class TestEnemy : TestEntity
 
     [SerializeField]
     private CollisionEventRiser Detector;
+
+    public int MyType { get => myType; }
 
     private CoroutineWrapper HitWrapper;
 
@@ -73,6 +78,12 @@ public class TestEnemy : TestEntity
 
         Detector.OnTriggerEnterEvent += OnTriggerEnterListener;
         Detector.OnTriggerExitEvent += OnTriggerExitListener;
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        gameObject.SetActive(false);
     }
 
     private IEnumerator Start()

@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyType: 1
-  DefaultHP: 0
+  DefaultHP: 500
   Agent: {fileID: 5208397165215981207}
   animator: {fileID: 9166207064717229890}
   TargetWaypointProbe: {fileID: 0}

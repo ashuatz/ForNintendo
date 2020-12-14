@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Util;
 
@@ -23,6 +24,8 @@ public class TestEnemySpawner : MonoBehaviour
     private List<TestEnemy> EnemyOrigin;
 
     private List<TestEnemy> Instances = new List<TestEnemy>();
+
+    private Dictionary<int, List<TestEnemy>> Pool = new Dictionary<int, List<TestEnemy>>();
 
     IEnumerator Start()
     {
@@ -51,10 +54,51 @@ public class TestEnemySpawner : MonoBehaviour
 
     private void Spawn(in int index)
     {
-        var instance = Instantiate(EnemyOrigin[index]);
+        var instance = GetObjectFormPool(index);
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
         instance.Initialize(FirstAttackTarget);
+        instance.OnDead += Instance_OnDead;
 
         Instances.Add(instance);
+
+    }
+
+    private void Instance_OnDead(TestEntity entity)
+    {
+        var instance = entity as TestEnemy;
+        Instances.Remove(instance);
+
+        instance.OnDead -= Instance_OnDead;
+
+        AddToPool(instance);
+    }
+
+    private void AddToPool(TestEnemy enemy)
+    {
+        if (!Pool.TryGetValue(enemy.MyType, out var list))
+        {
+            list = new List<TestEnemy>();
+            Pool.Add(enemy.MyType, list);
+        }
+        list.Add(enemy);
+    }
+
+    private TestEnemy GetObjectFormPool(int index)
+    {
+        if (!Pool.TryGetValue(index, out var list))
+        {
+            list = new List<TestEnemy>();
+            Pool.Add(index, list);
+
+            return Instantiate(EnemyOrigin[index]);
+        }
+
+        if (Pool[index].Count <= 0)
+            return Instantiate(EnemyOrigin[index]);
+
+        var instance = list.First();
+        list.Remove(instance);
+
+        return instance;
     }
 }

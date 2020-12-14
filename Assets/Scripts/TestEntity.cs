@@ -21,7 +21,7 @@ public class TestEntity : MonoBehaviour
     public Notifier<float> HP = new Notifier<float>();
 
     public event Action<HitInfo> OnHit;
-    public event Action OnDead;
+    public event Action<TestEntity> OnDead;
 
 
     public virtual void TakeDamage(HitInfo info)
@@ -29,10 +29,10 @@ public class TestEntity : MonoBehaviour
         HP.CurrentData -= info.Amount;
         OnHit?.Invoke(info);
 
-        if (HP.CurrentData < 0)
+        if (HP.CurrentData <= 0)
         {
             Dead();
-            OnDead?.Invoke();
+            OnDead?.Invoke(this);
         }
     }
 

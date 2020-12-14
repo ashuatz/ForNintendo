@@ -20,8 +20,23 @@ public class WorldData : Singleton<WorldData>
 
     public bool IsExist(Vector2 xz)
     {
+        //check with this function
+        //Physics.ComputePenetration()
+
         var key = xz.ToVector3FromXZ().Round(1).ToXZ();
 
         return BuildedStructureDict.ContainsKey(key);
+    }
+
+    public void RemoveStructure(TestStructure target)
+    {
+        BuildedStructure.Remove(target);
+        if (BuildedStructureDict.TryGetValue(target.transform.position.ToXZ(), out var check))
+        {
+            if (check == target)
+            {
+                BuildedStructureDict.Remove(target.transform.position.ToXZ());
+            }
+        }
     }
 }

@@ -5224,7 +5224,7 @@ MonoBehaviour:
   MyType: 2
   Agent: {fileID: 2589350607886643181}
   Animator: {fileID: 0}
-  DefaultHP: 1200
+  DefaultHP: 120
   AttackRange: 2
   AttackDamage: 10
   AttackPerSecond: 1

@@ -36,6 +36,10 @@ public class TestStructure : TestEntity
     [SerializeField]
     private List<StructureData> Datas;
 
+    [SerializeField]
+    private BoxCollider existArea;
+
+    public BoxCollider ExistArea { get => existArea; }
 
     private StructureData CurrentData;
 
@@ -46,13 +50,18 @@ public class TestStructure : TestEntity
         CurrentData = Datas.Find(data => data.Type == myType);
 
         HP.CurrentData = CurrentData.DefaultHP;
-
         var riser = Detector.GetComponent<CollisionEventRiser>();
         riser.OnTriggerEnterEvent += OnTriggerEnterListener;
         riser.OnTriggerExitEvent += OnTriggerExitListener;
 
         Detector.radius = CurrentData.AttackRange;
         Detector.isTrigger = true;
+    }
+
+    protected override void Dead()
+    {
+        WorldData.Instance.RemoveStructure(this);
+        enabled = false;
     }
 
     private IEnumerator Start()
