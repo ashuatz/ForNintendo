@@ -58,9 +58,9 @@ public class TestEnemySpawner : MonoBehaviour
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
         instance.Initialize(FirstAttackTarget);
         instance.OnDead += Instance_OnDead;
+        instance.gameObject.SetActive(true);
 
         Instances.Add(instance);
-
     }
 
     private void Instance_OnDead(TestEntity entity)
@@ -75,10 +75,10 @@ public class TestEnemySpawner : MonoBehaviour
 
     private void AddToPool(TestEnemy enemy)
     {
-        if (!Pool.TryGetValue(enemy.MyType, out var list))
+        if (!Pool.TryGetValue(enemy.MyEnemyType, out var list))
         {
             list = new List<TestEnemy>();
-            Pool.Add(enemy.MyType, list);
+            Pool.Add(enemy.MyEnemyType, list);
         }
         list.Add(enemy);
     }

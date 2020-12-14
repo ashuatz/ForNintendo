@@ -54,9 +54,11 @@ public class TestEnemy : TestEntity
     [SerializeField]
     private CollisionEventRiser Detector;
 
-    public int MyType { get => myType; }
+    public int MyEnemyType { get => myType; }
 
     private CoroutineWrapper HitWrapper;
+
+    private Transform FirstTarget;
 
     private List<TestEntity> Targets = new List<TestEntity>();
 
@@ -113,6 +115,8 @@ public class TestEnemy : TestEntity
                 info.Destination = target;
                 info.hitDir = dir.ToVector3FromXZ();
 
+                AttackTarget.CurrentData = info.Destination.transform;
+
                 target.TakeDamage(info);
                 break;
             }
@@ -146,6 +150,8 @@ public class TestEnemy : TestEntity
 
     public void Initialize(Transform target)
     {
+        FirstTarget = target;
+        HP.CurrentData = DefaultHP;
         AttackTarget.CurrentData = target;
     }
 
@@ -177,6 +183,9 @@ public class TestEnemy : TestEntity
     {
         if (AttackTarget.CurrentData != null)
         {
+            if (!AttackTarget.CurrentData.gameObject.activeInHierarchy)
+                AttackTarget.CurrentData = FirstTarget;
+
             Agent.SetDestination(AttackTarget.CurrentData.position);
         }
     }

@@ -62,6 +62,7 @@ public class TestStructure : TestEntity
     {
         WorldData.Instance.RemoveStructure(this);
         enabled = false;
+        gameObject.SetActive(false);
     }
 
     private IEnumerator Start()
