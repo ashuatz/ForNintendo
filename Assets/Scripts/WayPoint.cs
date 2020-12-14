@@ -46,7 +46,7 @@ public class WayPoint : MonoBehaviour
 
     private void Activator_OnTriggerExitEvent(Collider other)
     {
-        if(isEnter)
+        if (isEnter)
         {
             if (other.TryGetComponent<TestPlayer>(out var player))
             {
@@ -71,6 +71,12 @@ public class WayPoint : MonoBehaviour
         if (other.TryGetComponent<TestPlayer>(out var player))
         {
             LastTarget = target;
+
+            foreach (var t in Targets)
+            {
+                t.Riser.gameObject.SetActive(false);
+            }
+
         }
     }
 
