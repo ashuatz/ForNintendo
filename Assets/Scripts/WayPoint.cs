@@ -68,6 +68,12 @@ public class WayPoint : MonoBehaviour
 
     private void OnEnter(Collider other, WayPoint target)
     {
+        if (Vector2.Distance(Probe.position.ToXZ(), transform.position.ToXZ()) > 1f)
+            return;
+
+        if (Vector2.Distance(NPC.position.ToXZ(), transform.position.ToXZ()) > 1f)
+            return;
+
         if (other.TryGetComponent<TestPlayer>(out var player))
         {
             LastTarget = target;
