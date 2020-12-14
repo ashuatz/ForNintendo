@@ -29,12 +29,14 @@ public class WayPoint : MonoBehaviour
     [SerializeField]
     private CollisionEventRiser Activator;
 
+    private bool isEnter = false;
 
     private WayPoint LastTarget = null;
 
     private void Awake()
     {
         Activator.OnTriggerEnterEvent += Activator_OnTriggerEnterEvent;
+        Activator.OnTriggerExitEvent += Activator_OnTriggerExitEvent;
         foreach (var target in Targets)
         {
             target.Riser.OnTriggerEnterEvent += (collider) => OnEnter(collider, target.TargetPoint);
@@ -42,14 +44,25 @@ public class WayPoint : MonoBehaviour
         }
     }
 
+    private void Activator_OnTriggerExitEvent(Collider other)
+    {
+        if(isEnter)
+        {
+            if (other.TryGetComponent<TestPlayer>(out var player))
+            {
+                foreach (var target in Targets)
+                {
+                    target.Riser.gameObject.SetActive(true);
+                }
+            }
+        }
+    }
+
     private void Activator_OnTriggerEnterEvent(Collider other)
     {
         if (other.TryGetComponent<TestPlayer>(out var player))
         {
-            foreach (var target in Targets)
-            {
-                target.Riser.gameObject.SetActive(true);
-            }
+            isEnter = true;
         }
     }
 
@@ -75,7 +88,7 @@ public class WayPoint : MonoBehaviour
 
 
         //setup
-        Probe.transform.position = LastTarget.transform.position;
+        Probe.transform.position = LastTarget.transform.position.ToXZ().ToVector3FromXZ();
 
         foreach (var target in Targets)
         {
