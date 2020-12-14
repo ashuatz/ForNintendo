@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayCamController : MonoBehaviour
 {
-    Transform _target; //추적 대상
+    [SerializeField] Transform _target; //추적 대상
     [SerializeField] float _moveSpeed = 10.0f;
 
     [SerializeField] Vector3 _centerPos; //추적 모드일 경우 타겟으로부터의 위치
@@ -60,6 +60,7 @@ public class PlayCamController : MonoBehaviour
         z = z * _moveSpeed * Time.deltaTime;
         Vector3 origin = transform.position;
 
-        transform.position = new Vector3(Mathf.Clamp(origin.x + x, _mapSize.x * -0.5f, _mapSize.x * 0.5f), origin.y, Mathf.Clamp(z + origin.z, _mapSize.y * -0.5f, _mapSize.y * 0.5f));
+        transform.position = new Vector3(Mathf.Clamp(origin.x + x, _mapSize.x * -0.5f + _centerPos.x, _mapSize.x * 0.5f + _centerPos.x), origin.y,
+            Mathf.Clamp(z + origin.z, _mapSize.y * -0.5f + _centerPos.z, _mapSize.y * 0.5f + _centerPos.z));
     }
 }
