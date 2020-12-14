@@ -11,6 +11,9 @@ public class TestNPC : TestEntity
     private NavMeshAgent Agent;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private Transform TargetWaypointProbe;
 
     private void Awake()
@@ -21,5 +24,12 @@ public class TestNPC : TestEntity
     private void Update()
     {
         Agent.SetDestination(TargetWaypointProbe.position);
+
+        Animation();
+
+        void Animation()
+        {
+            animator.SetBool("Run", Agent.velocity.magnitude > 0.1f);
+        }
     }
 }

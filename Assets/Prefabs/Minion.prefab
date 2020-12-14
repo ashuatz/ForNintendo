@@ -298,7 +298,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 991391542464373754}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 10
   m_Acceleration: 120
   avoidancePriority: 50
@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyType: 1
   DefaultHP: 500
+  DefaultSpeed: 3
   Agent: {fileID: 991391542464373700}
   PlayerProbe: {fileID: 0}
   BuildObjects:

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2372556513880354722}
   - component: {fileID: 1463525102499288035}
   - component: {fileID: -4204291742113515727}
+  - component: {fileID: -2074171108573396129}
   m_Layer: 0
   m_Name: Build_W
   m_TagString: Untagged
@@ -110,3 +111,35 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &-2074171108573396129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470720604399463783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dde91f8b8e662428e219d5d5d13f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyType: 1
+  myType: 1
+  Detector: {fileID: 4066743846254263050, guid: cf41876c506024b40b3557fa1e3e15e1,
+    type: 3}
+  Datas:
+  - Type: 0
+    DefaultHP: 500
+    AttackRange: 0
+    AttackDamage: 0
+    AttackPerSecond: 0
+  - Type: 1
+    DefaultHP: 500
+    AttackRange: 0
+    AttackDamage: 0
+    AttackPerSecond: 0
+  - Type: 2
+    DefaultHP: 100
+    AttackRange: 5
+    AttackDamage: 10
+    AttackPerSecond: 2

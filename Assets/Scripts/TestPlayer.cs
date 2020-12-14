@@ -98,7 +98,7 @@ public class TestPlayer : TestEntity
         }
 
         //우클릭 이동
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             var position = InputManager.Instance.MouseWorldPosition.CurrentData;
 
@@ -118,13 +118,19 @@ public class TestPlayer : TestEntity
             if (BuildIndex.CurrentData != 0)
             {
                 var position = InputManager.Instance.MouseWorldXZ.CurrentData;
-                var pos = Input.mousePosition;
-
-                var currentMinion = GetCurrentMinion;
-                if (currentMinion != null)
+                if (!WorldData.Instance.IsExist(position.ToVector3FromXZ().Round(1).ToXZ()))
                 {
-                    GetCurrentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
-                    BuildIndex.CurrentData = 0;
+                    var currentMinion = GetCurrentMinion;
+                    if (currentMinion != null)
+                    {
+                        currentMinion.OnBuildOnce += WorldData.Instance.AddStructure;
+                        currentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
+                        BuildIndex.CurrentData = 0;
+                    }
+                }
+                else
+                {
+                    //Not allowed
                 }
             }
             else

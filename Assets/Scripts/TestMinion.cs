@@ -8,6 +8,10 @@ public class TestMinion : TestEntity
 {
     [SerializeField]
     private float DefaultHP;
+
+    [SerializeField]
+    private float DefaultSpeed;
+
     [SerializeField]
     private NavMeshAgent Agent;
 
@@ -24,6 +28,7 @@ public class TestMinion : TestEntity
 
     public bool isOrderAvailable { get => !CC && !isBuilding; }
 
+    public event System.Action<TestStructure> OnBuildOnce;
 
     public NotifierClass<Transform> MoveTargetNotifier { get; private set; }
 
@@ -39,6 +44,8 @@ public class TestMinion : TestEntity
 
     private void Update()
     {
+        Agent.speed = Mathf.Clamp(Vector2.Distance(PlayerProbe.position.ToXZ(), transform.position.ToXZ()) * DefaultSpeed, 1, 10);
+
         if (MoveTargetNotifier.CurrentData != null)
         {
             Agent.SetDestination(MoveTargetNotifier.CurrentData.position);
@@ -56,13 +63,22 @@ public class TestMinion : TestEntity
 
         IEnumerator BuildTarget(int idx, Vector2 pos, float t)
         {
-            var obj = Instantiate(BuildObjects[idx - 1]);
-            obj.transform.position = pos.ToVector3FromXZ().Round(1);
-            obj.SetActive(false);
-            MoveTargetNotifier.CurrentData = obj.transform;
             isBuilding = true;
 
+            var obj = Instantiate(BuildObjects[idx - 1]);
+            var Component = obj.GetComponent<TestStructure>();
+            obj.transform.position = pos.ToVector3FromXZ().Round(1);
+            obj.SetActive(false);
+
+            MoveTargetNotifier.CurrentData = obj.transform;
+
+            OnBuildOnce?.Invoke(Component);
+            OnBuildOnce = null;
+
+            yield return new WaitWhile(() => Vector2.Distance(pos, transform.position.ToXZ()) > 2);
+
             yield return new WaitForSeconds(t);
+
             MoveTargetNotifier.CurrentData = PlayerProbe;
             obj.SetActive(true);
             isBuilding = false;
