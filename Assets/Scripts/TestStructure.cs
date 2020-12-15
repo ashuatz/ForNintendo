@@ -6,26 +6,15 @@ using Util;
 
 
 
+public enum StructureType
+{
+    A,
+    B,
+    Turret,
+}
+
 public class TestStructure : TestEntity
 {
-    [Serializable]
-    public class StructureData
-    {
-        public StructureType Type;
-
-        public float DefaultHP;
-
-        public float AttackRange;
-        public float AttackDamage;
-        public float AttackPerSecond;
-    }
-
-    public enum StructureType
-    {
-        A,
-        B,
-        Turret,
-    }
 
     [SerializeField]
     private StructureType myType;
@@ -38,14 +27,11 @@ public class TestStructure : TestEntity
     public Collider StructureCollider { get => SpaceCollider; }
 
     [SerializeField]
-    private List<StructureData> Datas;
+    private StructureData data;
+    private List<StructureData.Structure> Datas { get => data.Structures; }
 
-    [SerializeField]
-    private BoxCollider existArea;
 
-    public BoxCollider ExistArea { get => existArea; }
-
-    private StructureData CurrentData;
+    private StructureData.Structure CurrentData;
 
     private List<TestEntity> Targets = new List<TestEntity>();
 

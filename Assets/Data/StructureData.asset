@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76df60abd82c65b4ea3b264c7914b6a1, type: 3}
+  m_Name: StructureData
+  m_EditorClassIdentifier: 
+  Structures:
+  - type: 0
+    defaultHP: 500
+    attackRange: 0
+    attackDamage: 0
+    attackPerSecond: 0
+  - type: 1
+    defaultHP: 500
+    attackRange: 0
+    attackDamage: 0
+    attackPerSecond: 0
+  - type: 2
+    defaultHP: 100
+    attackRange: 5
+    attackDamage: 10
+    attackPerSecond: 2

@@ -361,6 +361,7 @@ MonoBehaviour:
   DefaultHP: 500
   Damage: 10
   AttackDelay: 0.15
+  Viewer: {fileID: 0}
   animator: {fileID: 7149192149040383466}
   Agent: {fileID: 8576063548635233806}
   Marker: {fileID: 0}
