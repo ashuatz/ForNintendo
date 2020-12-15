@@ -14,11 +14,25 @@ public class TestBuildPreview : MonoBehaviour
     [SerializeField]
     private List<GameObject> BuildObjects;
 
+    [SerializeField]
+    private List<Collider> BuildTester;
+
     private void Awake()
     {
         player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
         InputManager.Instance.MouseWorldXZ.OnDataChanged += MouseWorldXZ_OnDataChanged;
+    }
 
+    public bool CheckBuildAllow(int index, Vector2 position)
+    {
+        var target = BuildTester[index - 1];
+        target.transform.position = position.ToVector3FromXZ().Round(1);
+        target.gameObject.SetActive(true);
+
+        var allowed = !WorldData.Instance.IsExist(target);
+        target.gameObject.SetActive(false);
+
+        return allowed;
     }
 
     private void MouseWorldXZ_OnDataChanged(Vector2 xz)

@@ -34,6 +34,10 @@ public class TestStructure : TestEntity
     private SphereCollider Detector;
 
     [SerializeField]
+    private Collider SpaceCollider;
+    public Collider StructureCollider { get => SpaceCollider; }
+
+    [SerializeField]
     private List<StructureData> Datas;
 
     [SerializeField]

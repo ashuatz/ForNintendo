@@ -22,6 +22,9 @@ public class TestPlayer : TestEntity
 
     [Header("Pre-defined Property")]
     [SerializeField]
+    private TestBuildPreview Viewer;
+
+    [SerializeField]
     private Animator animator;
 
     [SerializeField]
@@ -118,7 +121,7 @@ public class TestPlayer : TestEntity
             if (BuildIndex.CurrentData != 0)
             {
                 var position = InputManager.Instance.MouseWorldXZ.CurrentData;
-                if (!WorldData.Instance.IsExist(position.ToVector3FromXZ().Round(1).ToXZ()))
+                if (Viewer.CheckBuildAllow(BuildIndex.CurrentData, position))
                 {
                     var currentMinion = GetCurrentMinion;
                     if (currentMinion != null)
