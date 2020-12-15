@@ -15,9 +15,9 @@ MonoBehaviour:
   Structures:
   - type: 0
     defaultHP: 500
-    attackRange: 0
-    attackDamage: 0
-    attackPerSecond: 0
+    attackRange: 10
+    attackDamage: 100
+    attackPerSecond: 10
   - type: 1
     defaultHP: 500
     attackRange: 0

@@ -27,6 +27,12 @@ public class TestEnemySpawner : MonoBehaviour
 
     private Dictionary<int, List<TestEnemy>> Pool = new Dictionary<int, List<TestEnemy>>();
 
+
+    private void OnEnable()
+    {
+        StartCoroutine(Start());
+    }
+
     IEnumerator Start()
     {
         while (enabled)

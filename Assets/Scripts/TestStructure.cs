@@ -77,6 +77,13 @@ public class TestStructure : TestEntity
                 info.hitDir = dir.ToVector3FromXZ();
 
                 target.TakeDamage(info);
+                target.OnDead += OnTargetDead;
+
+                void OnTargetDead(TestEntity t)
+                {
+                    Targets.Remove(t);
+                    t.OnDead -= OnTargetDead;
+                }
                 break;
             }
 
