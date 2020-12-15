@@ -81,10 +81,10 @@ public class TestEnemySpawner : MonoBehaviour
 
     private void AddToPool(TestEnemy enemy)
     {
-        if (!Pool.TryGetValue(enemy.MyEnemyType, out var list))
+        if (!Pool.TryGetValue((int)enemy.MyEnemyType, out var list))
         {
             list = new List<TestEnemy>();
-            Pool.Add(enemy.MyEnemyType, list);
+            Pool.Add((int)enemy.MyEnemyType, list);
         }
         list.Add(enemy);
     }

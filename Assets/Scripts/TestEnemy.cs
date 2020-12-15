@@ -36,17 +36,12 @@ public class TestEnemy : TestEntity
     private Animator Animator;
 
     [SerializeField]
-    private int myType;
+    private EnemyType myEnemyType;
 
     [SerializeField]
-    private float DefaultHP;
+    private EnemyData data;
 
-    [SerializeField]
-    private float AttackRange;
-    [SerializeField]
-    private float AttackDamage;
-    [SerializeField]
-    private float AttackPerSecond;
+    private EnemyData.Enemy currentData;
 
     [SerializeField]
     private Transform PlayerTransformForTest;
@@ -54,7 +49,7 @@ public class TestEnemy : TestEntity
     [SerializeField]
     private CollisionEventRiser Detector;
 
-    public int MyEnemyType { get => myType; }
+    public EnemyType MyEnemyType { get => myEnemyType; }
 
     private CoroutineWrapper HitWrapper;
 
@@ -68,11 +63,14 @@ public class TestEnemy : TestEntity
 
     private void Awake()
     {
+
+        currentData = data.Enemies.Find(e => e.MyType == MyEnemyType);
+
         base.OnHit += TestEnemy_OnHit;
 
         HitWrapper = CoroutineWrapper.Generate(this);
 
-        HP.CurrentData = DefaultHP;
+        HP.CurrentData = currentData.DefaultHP;
 
         AttackTarget.CurrentData = PlayerTransformForTest;
 
@@ -81,6 +79,17 @@ public class TestEnemy : TestEntity
         Detector.OnTriggerEnterEvent += OnTriggerEnterListener;
         Detector.OnTriggerExitEvent += OnTriggerExitListener;
     }
+    public void Initialize(Transform target)
+    {
+        FirstTarget = target;
+        HP.CurrentData = currentData.DefaultHP;
+        AttackTarget.CurrentData = target;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(AttackRoutine());
+    }
 
     protected override void Dead()
     {
@@ -88,7 +97,7 @@ public class TestEnemy : TestEntity
         gameObject.SetActive(false);
     }
 
-    private IEnumerator Start()
+    private IEnumerator AttackRoutine()
     {
         List<TestEntity> removeList = new List<TestEntity>();
 
@@ -110,7 +119,7 @@ public class TestEnemy : TestEntity
 
                 var dir = (target.transform.position.ToXZ() - transform.position.ToXZ()).normalized;
                 var info = new HitInfo();
-                info.Amount = AttackDamage;
+                info.Amount = currentData.AttackDamage;
                 info.Origin = this;
                 info.Destination = target;
                 info.hitDir = dir.ToVector3FromXZ();
@@ -126,7 +135,7 @@ public class TestEnemy : TestEntity
                 Targets.Remove(removeItem);
             }
 
-            yield return YieldInstructionCache.WaitForSeconds(1 / AttackPerSecond);
+            yield return YieldInstructionCache.WaitForSeconds(1 / currentData.AttackPerSecond);
         }
     }
 
@@ -148,12 +157,6 @@ public class TestEnemy : TestEntity
         }
     }
 
-    public void Initialize(Transform target)
-    {
-        FirstTarget = target;
-        HP.CurrentData = DefaultHP;
-        AttackTarget.CurrentData = target;
-    }
 
     private void AttackTarget_OnDataChanged(Transform obj)
     {

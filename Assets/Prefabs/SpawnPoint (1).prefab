@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnRangeXZ: {x: -3, y: -3, z: 3, w: 3}
-  SpawnRate: {x: 1, y: 0, z: 0}
+  SpawnRate: {x: 5, y: 0, z: 1}
   MaxSpawnCount: 20
   SpawnPerSecond: 3
   FirstAttackTarget: {fileID: 0}
   EnemyOrigin:
   - {fileID: 6991220783252738126, guid: 49cc12190ef68b24aa3e7567ef7a64f1, type: 3}
   - {fileID: 6991220783252738126, guid: 49cc12190ef68b24aa3e7567ef7a64f1, type: 3}
-  - {fileID: 6991220783252738126, guid: 49cc12190ef68b24aa3e7567ef7a64f1, type: 3}
+  - {fileID: 6991220783252738126, guid: 52ce452a4bd467049a980f68c64baf93, type: 3}

@@ -105,7 +105,11 @@ public class TestPlayer : TestEntity
         {
             var position = InputManager.Instance.MouseWorldPosition.CurrentData;
 
+            Agent.ResetPath();
+            
             Agent.SetDestination(position);
+            Agent.isStopped = false;
+
             Marker.transform.position = position;
             Marker.SetActive(true);
 
