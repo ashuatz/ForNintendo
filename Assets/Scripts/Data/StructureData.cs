@@ -5,7 +5,7 @@ using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
-[CreateAssetMenu(fileName = "NewStructureData", menuName = "StructureData", order = 1)]
+[CreateAssetMenu(fileName = "NewStructureData", menuName = "StructureData", order = 0)]
 #endif
 
 public class StructureData : ScriptableObject
@@ -31,4 +31,11 @@ public class StructureData : ScriptableObject
     }
 
     public List<Structure> Structures = new List<Structure>();
+}
+
+public enum StructureType
+{
+    Barricade,
+    MeleeTurret,
+    RangeTurret,
 }

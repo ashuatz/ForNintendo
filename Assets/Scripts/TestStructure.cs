@@ -6,12 +6,6 @@ using Util;
 
 
 
-public enum StructureType
-{
-    A,
-    B,
-    Turret,
-}
 
 public class TestStructure : TestEntity
 {
