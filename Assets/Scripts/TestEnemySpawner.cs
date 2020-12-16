@@ -30,10 +30,10 @@ public class TestEnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(Start());
+        StartCoroutine(StartSpawn());
     }
 
-    IEnumerator Start()
+    IEnumerator StartSpawn()
     {
         while (enabled)
         {
