@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - myType: 0
-    defaultHP: 120
-    attackRange: 1
-    attackDamage: 10
-    attackPerSecond: 2
-  - myType: 1
-    defaultHP: 0
-    attackRange: 0
-    attackDamage: 0
-    attackPerSecond: 0
-  - myType: 2
     defaultHP: 100
     attackRange: 1
-    attackDamage: 5
-    attackPerSecond: 4
+    attackDamage: 10
+    attackPerSecond: 1
+  - myType: 1
+    defaultHP: 200
+    attackRange: 1
+    attackDamage: 30
+    attackPerSecond: 2
+  - myType: 2
+    defaultHP: 150
+    attackRange: 1
+    attackDamage: 20
+    attackPerSecond: 1
