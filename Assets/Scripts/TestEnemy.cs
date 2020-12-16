@@ -143,6 +143,11 @@ public class TestEnemy : TestEntity
     {
         HitWrapper.StartSingleton(HitEffect(0.2f));
 
+        if (AttackTarget.CurrentData == null)
+        {
+            AttackTarget.CurrentData = info.Origin.transform;
+        }
+
         IEnumerator HitEffect(float runtime)
         {
             Agent.velocity = Vector3.zero;
