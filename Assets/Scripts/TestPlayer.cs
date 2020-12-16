@@ -100,6 +100,11 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = 3;
         }
 
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            Agent.isStopped = true;
+        }
+
         //우클릭 이동
         if (Input.GetMouseButton(1))
         {
