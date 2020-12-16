@@ -6416,6 +6416,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11, y: 10, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1592682970 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4265917687594528126, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
+    type: 3}
+  m_PrefabInstance: {fileID: 5208397163674105857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1642248966
 GameObject:
   m_ObjectHideFlags: 0
@@ -9675,6 +9681,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4375577945928860432, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208397165215981204, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1592682970}
     - target: {fileID: 5208397165215981204, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
         type: 3}
       propertyPath: TargetWaypointProbe
@@ -9698,7 +9714,7 @@ PrefabInstance:
     - target: {fileID: 5208397165215981211, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5208397165215981211, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
         type: 3}
