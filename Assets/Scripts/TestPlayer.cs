@@ -38,11 +38,17 @@ public class TestPlayer : TestEntity
     [SerializeField]
     private List<TestMinion> Minions;
 
+    [SerializeField]
+    private Transform ProbeRoot;
+
+    private Notifier<bool> OnclickShot = new Notifier<bool>();
+
     public TestMinion GetCurrentMinion { get => Minions.Find(minion => minion.isOrderAvailable); }
 
     public Notifier<int> BuildIndex = new Notifier<int>();
 
     public event Action OnShot;
+    private float ClickTime = 0f;
 
 
 
@@ -51,6 +57,8 @@ public class TestPlayer : TestEntity
 
     private void Start()
     {
+        OnclickShot.OnDataChanged += OnclickShot_OnDataChanged;
+
         HP.CurrentData = DefaultHP;
         animator.speed = 0.85f;
         probeAnimator.speed = 0.85f;
@@ -58,6 +66,21 @@ public class TestPlayer : TestEntity
 
         //GetComponent<NavMeshAgent>().SetDestination(Target.position);
         time = Time.time;
+    }
+
+    private void OnclickShot_OnDataChanged(bool isShot)
+    {
+        probeAnimator.SetBool("Click", isShot);
+
+        if (isShot)
+        {
+            probeAnimator.SetTrigger("Attack_Ready");
+            ClickTime = Time.time;
+        }
+        else
+        {
+            ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
+        }
     }
 
     private bool TryGetWorldPosition(Vector3 MousePosition, out Vector2 WorldXZPosition)
@@ -104,7 +127,7 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = 3;
         }
 
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Agent.isStopped = true;
         }
@@ -115,7 +138,7 @@ public class TestPlayer : TestEntity
             var position = InputManager.Instance.MouseWorldPosition.CurrentData;
 
             Agent.ResetPath();
-            
+
             Agent.SetDestination(position);
             Agent.isStopped = false;
 
@@ -129,10 +152,13 @@ public class TestPlayer : TestEntity
 
         }
 
+
         if (Input.GetMouseButton(0))
         {
             if (BuildIndex.CurrentData != 0)
             {
+                OnclickShot.CurrentData = false;
+
                 var position = InputManager.Instance.MouseWorldXZ.CurrentData;
                 if (Viewer.CheckBuildAllow(BuildIndex.CurrentData, position))
                 {
@@ -151,13 +177,17 @@ public class TestPlayer : TestEntity
             }
             else
             {
+                OnclickShot.CurrentData = true;
+
+                var position = InputManager.Instance.MouseWorldXZ.CurrentData;
+                var dir = position - transform.position.ToXZ();
+
+
+                ProbeRoot.rotation = Quaternion.Euler(Quaternion.LookRotation(dir.ToVector3FromXZ().normalized).eulerAngles + Quaternion.Euler(0, 90, 0).eulerAngles);
+
                 if (LastAttackTime + AttackDelay < Time.time)
                 {
                     LastAttackTime = Time.time;
-
-                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
-
-                    var dir = position - transform.position.ToXZ();
 
                     var hits = Physics.RaycastAll(transform.position.ToXZ().ToVector3FromXZ(), dir.ToVector3FromXZ().normalized, 50, 1 << LayerMask.NameToLayer("Default"));
                     var entities = hits
@@ -177,9 +207,17 @@ public class TestPlayer : TestEntity
                     }
 
                     OnShot?.Invoke();
+                    if (ClickTime + 0.733f < Time.time)
+                    {
+                        probeAnimator.SetTrigger("Attack_Trigger");
+                    }
                 }
 
             }
+        }
+        else
+        {
+            OnclickShot.CurrentData = false;
         }
 
         IEnumerator MarkerOff()
@@ -187,5 +225,10 @@ public class TestPlayer : TestEntity
             yield return new WaitForSeconds(0.5f);
             Marker.SetActive(false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnclickShot.OnDataChanged -= OnclickShot_OnDataChanged;
     }
 }
