@@ -6,7 +6,8 @@ namespace Util
 
     public static class VectorExtension
     {
-        public static float Remap(this float value, in (float, float) input, in (float, float) output) => input.Item2 + (output.Item2 - input.Item2) * ((value - input.Item1) / (output.Item1 - input.Item1));
+
+        public static float Remap(this float value, in (float, float) input, in (float, float) output) => output.Item1 + (output.Item2 - output.Item1) * ((value - input.Item1) / (input.Item2 - input.Item1));
 
         public static Vector2 GetRandom(this in Vector4 vector) => new Vector2(Random.Range(vector.x, vector.z), Random.Range(vector.y, vector.w));
 
