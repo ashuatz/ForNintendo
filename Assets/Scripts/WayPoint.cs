@@ -29,12 +29,17 @@ public class WayPoint : MonoBehaviour
     [SerializeField]
     private CollisionEventRiser Activator;
 
+    private WayPointEvent CurrentEvent;
+
     private bool isEnter = false;
 
     private WayPoint LastTarget = null;
 
     private void Awake()
     {
+        if (TryGetComponent<WayPointEvent>(out var e))
+            CurrentEvent = e;
+
         Activator.OnTriggerEnterEvent += Activator_OnTriggerEnterEvent;
         Activator.OnTriggerExitEvent += Activator_OnTriggerExitEvent;
         foreach (var target in Targets)
@@ -95,9 +100,14 @@ public class WayPoint : MonoBehaviour
         if (Vector2.Distance(NPC.position.ToXZ(), transform.position.ToXZ()) > 1f)
             return;
 
+        if (CurrentEvent != null && !CurrentEvent.isRun)
+        {
+            CurrentEvent.Run();
+            return;
+        }
+
         if (LastTarget == null)
             return;
-
 
         //setup
         Probe.transform.position = LastTarget.transform.position.ToXZ().ToVector3FromXZ();
