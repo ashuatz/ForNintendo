@@ -26,6 +26,8 @@ public class TestPlayer : TestEntity
 
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private Animator probeAnimator;
 
     [SerializeField]
     private NavMeshAgent Agent;
@@ -80,6 +82,7 @@ public class TestPlayer : TestEntity
         void Animation()
         {
             animator.SetBool("Run", Agent.velocity.magnitude > 0.1f);
+            probeAnimator.SetBool("Run", Agent.velocity.magnitude > 0.1f);
         }
     }
 
