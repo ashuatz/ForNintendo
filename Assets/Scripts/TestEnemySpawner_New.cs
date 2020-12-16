@@ -35,10 +35,10 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(Start());
+        StartCoroutine(StartSpawn());
     }
 
-    IEnumerator Start()
+    IEnumerator StartSpawn()
     {
         while (_waveData.Length > _nowWave)
         {
