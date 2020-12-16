@@ -41,6 +41,8 @@ public class TestPlayer : TestEntity
     [SerializeField]
     private Transform ProbeRoot;
 
+    private CoroutineWrapper probeRotationWrapper;
+
     private Notifier<bool> OnclickShot = new Notifier<bool>();
 
     public TestMinion GetCurrentMinion { get => Minions.Find(minion => minion.isOrderAvailable); }
@@ -63,6 +65,7 @@ public class TestPlayer : TestEntity
         animator.speed = 0.85f;
         probeAnimator.speed = 0.85f;
         markerRoutine = CoroutineWrapper.Generate(this);
+        probeRotationWrapper = CoroutineWrapper.Generate(this);
 
         //GetComponent<NavMeshAgent>().SetDestination(Target.position);
         time = Time.time;
@@ -76,10 +79,29 @@ public class TestPlayer : TestEntity
         {
             probeAnimator.SetTrigger("Attack_Ready");
             ClickTime = Time.time;
+
+            probeRotationWrapper.Stop();
         }
         else
         {
+            probeRotationWrapper.StartSingleton(resetRotation(0.9f, 0.2f));
             //ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
+
+            IEnumerator resetRotation(float firstDelay, float runtime)
+            {
+                float t = 0;
+                yield return YieldInstructionCache.WaitForSeconds(firstDelay);
+
+                Quaternion defaultLotation = ProbeRoot.localRotation;
+                while (t < runtime)
+                {
+                    ProbeRoot.localRotation = Quaternion.Lerp(defaultLotation, Quaternion.Euler(0, 90, 0), t / runtime);
+                    t += Time.deltaTime;
+                    yield return null;
+                }
+
+                ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
+            }
         }
     }
 
