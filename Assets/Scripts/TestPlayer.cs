@@ -79,7 +79,7 @@ public class TestPlayer : TestEntity
         }
         else
         {
-            ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
+            //ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
         }
     }
 
