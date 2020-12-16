@@ -53,6 +53,7 @@ public class TestPlayer : TestEntity
     {
         HP.CurrentData = DefaultHP;
         animator.speed = 0.85f;
+        probeAnimator.speed = 0.85f;
         markerRoutine = CoroutineWrapper.Generate(this);
 
         //GetComponent<NavMeshAgent>().SetDestination(Target.position);
