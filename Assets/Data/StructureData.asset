@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Structures:
   - type: 0
-    defaultHP: 300
+    defaultHP: 400
     attackRange: 0
     attackDamage: 0
     attackPerSecond: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     attackDamage: 30
     attackPerSecond: 1
   - type: 2
-    defaultHP: 100
+    defaultHP: 50
     attackRange: 6
-    attackDamage: 10
+    attackDamage: 8
     attackPerSecond: 3
