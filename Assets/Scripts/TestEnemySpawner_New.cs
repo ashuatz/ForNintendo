@@ -40,53 +40,50 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     IEnumerator Start()
     {
-        while (enabled)
+        while (_waveData.Length > _nowWave)
         {
-            if (_waveData.Length > _nowWave)
+            _nowSpawn = 0;
+            for (int i = 0; i < _waveData[_nowWave]._maxSpawnCount; i++)
             {
-                _nowSpawn = 0;
-                for (int i = 0; i < _waveData[_nowWave]._maxSpawnCount; i++)
+                Vector3 SpawnRate = _waveData[_nowWave]._spawnRate;
+
+                _nowSpawn++;
+                var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
+                if (tester > SpawnRate.x + SpawnRate.y)
                 {
-                    Vector3 SpawnRate = _waveData[_nowWave]._spawnRate;
-
-                    _nowSpawn++;
-                    var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
-                    if (tester > SpawnRate.x + SpawnRate.y)
-                    {
-                        Spawn(2);
-                    }
-                    else if (tester > SpawnRate.x)
-                    {
-                        Spawn(1);
-                    }
-                    else
-                    {
-                        Spawn(0);
-                    }
-                    yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
+                    Spawn(2);
                 }
-
-                //if (_nowSpawn < MaxSpawnCount)
-                //{
-                //    _nowSpawn++;
-                //    var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
-                //    if (tester > SpawnRate.x + SpawnRate.y)
-                //    {
-                //        Spawn(2);
-                //    }
-                //    else if (tester > SpawnRate.x)
-                //    {
-                //        Spawn(1);
-                //    }
-                //    else
-                //    {
-                //        Spawn(0);
-                //    }
-                //    yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
-                //}
-                yield return YieldInstructionCache.WaitForSeconds(_waveData[_nowWave]._waitTimeForNextWave);
-                _nowWave++;
+                else if (tester > SpawnRate.x)
+                {
+                    Spawn(1);
+                }
+                else
+                {
+                    Spawn(0);
+                }
+                yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
             }
+
+            //if (_nowSpawn < MaxSpawnCount)
+            //{
+            //    _nowSpawn++;
+            //    var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
+            //    if (tester > SpawnRate.x + SpawnRate.y)
+            //    {
+            //        Spawn(2);
+            //    }
+            //    else if (tester > SpawnRate.x)
+            //    {
+            //        Spawn(1);
+            //    }
+            //    else
+            //    {
+            //        Spawn(0);
+            //    }
+            //    yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
+            //}
+            yield return YieldInstructionCache.WaitForSeconds(_waveData[_nowWave]._waitTimeForNextWave);
+            _nowWave++;
         }
     }
 
