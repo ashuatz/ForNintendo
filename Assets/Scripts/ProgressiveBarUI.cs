@@ -7,27 +7,28 @@ public class ProgressiveBarUI : MonoBehaviour
 {
     [SerializeField] Image[] _progressiveBar;
 
-    TestEnemySpawner_New[] _spawner;
+    Sector[] _sector;
 
     int[] _maxEnemy;
     int[] _killEnemy;
 
-    int _barMany;
+    int _sectorMany;
 
     public bool _onBar = true;
 
     void Start()
     {
-        _spawner = SpawnerParent._Spawners;
+        _sector = SpawnerParent._Sectors;
 
-        _barMany = _spawner.Length;
-        _maxEnemy = new int[_barMany];
+        _sectorMany = _sector.Length;
+        _maxEnemy = new int[_sectorMany];
 
-        for (int i = 0; i < _barMany; i++)
+        for (int i = 0; i < _sectorMany; i++)
         {
             _maxEnemy[i] = 0;
-            for (int j = 0; j < _spawner[i]._WaveData.Length; j++)
-                _maxEnemy[i] += _spawner[i]._WaveData[j]._maxSpawnCount;
+            for (int j = 0; j < _sector.Length; j++)
+                for (int k = 0; k < _sector[j]._spawners.Length; k++)
+                    _maxEnemy[i] += _sector[i]._spawners[j]._WaveData[k]._maxSpawnCount;
         }
     }
 
@@ -39,7 +40,12 @@ public class ProgressiveBarUI : MonoBehaviour
 
     void DrawProgressiveBar()
     {
-        for (int i = 0; i < _barMany; i++)
-            _progressiveBar[i].fillAmount = (float)_spawner[i]._killEnemy / _maxEnemy[i];
+        for (int i = 0; i < _sectorMany; i++)
+        {
+            int kill = 0;
+            for (int j = 0; j < _sector[i]._spawners.Length; j++)
+                kill += _sector[i]._spawners[j]._killEnemy;
+            _progressiveBar[i].fillAmount = (float)kill / _maxEnemy[i];
+        }
     }
 }
