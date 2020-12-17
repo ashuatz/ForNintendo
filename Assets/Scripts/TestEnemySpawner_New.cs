@@ -93,6 +93,7 @@ public class TestEnemySpawner_New : MonoBehaviour
         var instance = entity as TestEnemy;
         Instances.Remove(instance);
         _killEnemy++;
+        SpawnerParent._SpawnerParent.CheckSectorClear();
 
         instance.OnDead -= Instance_OnDead;
 
