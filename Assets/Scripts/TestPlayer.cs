@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using Util;
 
+using static BuildResourceManager;
+
 public class TestPlayer : TestEntity
 {
 
@@ -57,6 +59,7 @@ public class TestPlayer : TestEntity
     private CoroutineWrapper markerRoutine;
     private float time = 0;
 
+
     private void Start()
     {
         OnclickShot.OnDataChanged += OnclickShot_OnDataChanged;
@@ -69,6 +72,9 @@ public class TestPlayer : TestEntity
 
         //GetComponent<NavMeshAgent>().SetDestination(Target.position);
         time = Time.time;
+
+
+
     }
 
     private void OnclickShot_OnDataChanged(bool isShot)
@@ -135,16 +141,16 @@ public class TestPlayer : TestEntity
 
     private void PlayerInput()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && _BuildResourceManager.IsHaveTower(0))
         {
             //build Test
             BuildIndex.CurrentData = 1;
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && _BuildResourceManager.IsHaveTower(1))
         {
             BuildIndex.CurrentData = 2;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && _BuildResourceManager.IsHaveTower(2))
         {
             BuildIndex.CurrentData = 3;
         }
@@ -189,6 +195,7 @@ public class TestPlayer : TestEntity
                     {
                         currentMinion.OnBuildOnce += WorldData.Instance.AddStructure;
                         currentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
+                        _BuildResourceManager.UseTower(BuildIndex.CurrentData - 1);
                         BuildIndex.CurrentData = 0;
                     }
                 }
