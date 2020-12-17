@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class SpawnerParent : MonoBehaviour
 {
-    [SerializeField] TestEnemySpawner_New[] _spawners;
+    [SerializeField] Sector[] _sectors;
+
+    [SerializeField] 
     static SpawnerParent _SpawnerParent;
-    public static TestEnemySpawner_New[] _Spawners { get { return _SpawnerParent._spawners; } }
+    public static Sector[] _Sectors { get { return _SpawnerParent._sectors; } }
 
     private void Awake()
     {
         _SpawnerParent = this;
     }
+}
+
+[System.Serializable]
+public class Sector
+{
+    public TestEnemySpawner_New[] _spawners;
 }
