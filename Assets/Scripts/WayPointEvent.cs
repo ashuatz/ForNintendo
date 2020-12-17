@@ -38,7 +38,7 @@ public class WayPointEvent : MonoBehaviour
                 yield return new WaitForSeconds(message.time - t);
             t += message.time;
 
-            ShowMessage(message.desc);
+            ShowMessage(message.desc, message.duration);
 
             yield return new WaitForSeconds(message.duration);
             t += message.duration;
@@ -48,8 +48,8 @@ public class WayPointEvent : MonoBehaviour
         isEnd = true;
     }
 
-    private void ShowMessage(string message)
+    private void ShowMessage(string message, in float time)
     {
-        Debug.Log("message : " + message);
+        TextBox.Instance.Input(message, time);
     }
 }
