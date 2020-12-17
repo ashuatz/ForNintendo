@@ -94,7 +94,17 @@ public class TestEnemy : TestEntity
     protected override void Dead()
     {
         base.Dead();
-        gameObject.SetActive(false);
+
+        Animator.SetTrigger("Die");
+
+        StartCoroutine(DeleayRelease());
+
+        IEnumerator DeleayRelease()
+        {
+            yield return YieldInstructionCache.WaitForSeconds(1.5f);
+
+            gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator AttackRoutine()
@@ -189,12 +199,15 @@ public class TestEnemy : TestEntity
 
     private void Update()
     {
+
         if (AttackTarget.CurrentData != null)
         {
             if (!AttackTarget.CurrentData.gameObject.activeInHierarchy)
                 AttackTarget.CurrentData = FirstTarget;
 
             Agent.SetDestination(AttackTarget.CurrentData.position);
+
+            Animator.SetBool("IsMoving", true);
         }
     }
 

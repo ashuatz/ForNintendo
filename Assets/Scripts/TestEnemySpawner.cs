@@ -99,10 +99,10 @@ public class TestEnemySpawner : MonoBehaviour
             return Instantiate(EnemyOrigin[index]);
         }
 
-        if (Pool[index].Count <= 0)
+        if (Pool[index].Count((enemy) => !enemy.gameObject.activeInHierarchy) <= 0)
             return Instantiate(EnemyOrigin[index]);
 
-        var instance = list.First();
+        var instance = list.First((enemy) => !enemy.gameObject.activeInHierarchy);
         list.Remove(instance);
 
         return instance;
