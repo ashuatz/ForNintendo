@@ -119,6 +119,7 @@ public class SpecialEnemyTypeA : TestEntity
         FirstTarget = target;
         HP.CurrentData = currentData.DefaultHP;
         AttackTarget.CurrentData = target;
+        Agent.isStopped = false;
     }
 
     private void OnEnable()
@@ -129,6 +130,8 @@ public class SpecialEnemyTypeA : TestEntity
     protected override void Dead()
     {
         base.Dead();
+
+        Agent.isStopped = true;
 
         Animator.SetTrigger("Die");
 
