@@ -24,12 +24,7 @@ public class ProgressiveBarUI : MonoBehaviour
         _maxEnemy = new int[_sectorMany];
 
         for (int i = 0; i < _sectorMany; i++)
-        {
-            _maxEnemy[i] = 0;
-            for (int j = 0; j < _sector.Length; j++)
-                for (int k = 0; k < _sector[j]._spawners.Length; k++)
-                    _maxEnemy[i] += _sector[i]._spawners[j]._WaveData[k]._maxSpawnCount;
-        }
+            _maxEnemy[i] = _sector[i]._maxEnemy;
     }
 
     void Update()
