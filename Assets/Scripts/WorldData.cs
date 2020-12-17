@@ -130,6 +130,8 @@ public class WorldData : MonoSingleton<WorldData>
 
     public void RemoveStructure(TestStructure target)
     {
+        StructureColliders.Remove(target.StructureCollider);
+
         BuildedStructure.Remove(target);
         if (BuildedStructureDict.TryGetValue(target.transform.position.ToXZ(), out var check))
         {

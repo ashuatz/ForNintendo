@@ -23,6 +23,7 @@ public class TestEntity : MonoBehaviour
     public event Action<HitInfo> OnHit;
     public event Action<TestEntity> OnDead;
 
+    private bool isDead = false;
 
     public virtual void TakeDamage(HitInfo info)
     {
@@ -31,8 +32,17 @@ public class TestEntity : MonoBehaviour
 
         if (HP.CurrentData <= 0)
         {
+            if (isDead)
+                return;
+
+            isDead = true;
+
             Dead();
             OnDead?.Invoke(this);
+        }
+        else
+        {
+            isDead = false;
         }
     }
 

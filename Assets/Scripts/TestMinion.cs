@@ -12,8 +12,10 @@ public class TestMinion : TestEntity
     [SerializeField]
     private float DefaultSpeed;
 
-    [SerializeField]
-    private NavMeshAgent Agent;
+    //[SerializeField]
+    //private NavMeshAgent Agent;
+
+    private float Speed;
 
     [SerializeField]
     private Transform PlayerProbe;
@@ -22,6 +24,7 @@ public class TestMinion : TestEntity
 
     [SerializeField]
     private List<GameObject> BuildObjects;
+
 
     public bool CC { get; private set; }
     public bool isBuilding { get; private set; }
@@ -44,17 +47,17 @@ public class TestMinion : TestEntity
 
     private void Update()
     {
-        Agent.speed = Mathf.Clamp(Vector2.Distance(PlayerProbe.position.ToXZ(), transform.position.ToXZ()) * DefaultSpeed, 1, 10);
+        Speed = Mathf.Clamp(Vector2.Distance(PlayerProbe.position.ToXZ(), transform.position.ToXZ()) * DefaultSpeed, 1, 10);
 
         if (MoveTargetNotifier.CurrentData != null)
         {
-            Agent.SetDestination(MoveTargetNotifier.CurrentData.position);
+            transform.position = Vector3.Lerp(transform.position, MoveTargetNotifier.CurrentData.position.ToXZ().ToVector3FromXZ(1), 0.05f);
         }
     }
 
     private void MoveTargetNotifier_OnDataChanged(Transform obj)
     {
-        Agent.SetDestination(obj.position);
+        //Agent.SetDestination(obj.position);
     }
 
     public void Build(int index, Vector2 position, float time)
@@ -75,7 +78,9 @@ public class TestMinion : TestEntity
             OnBuildOnce?.Invoke(Component);
             OnBuildOnce = null;
 
-            yield return new WaitWhile(() => Vector2.Distance(pos, transform.position.ToXZ()) > 2);
+            bool isSuccess = false;
+
+            yield return this.WaitforTimeWhileCondition(3, () => Vector2.Distance(pos, transform.position.ToXZ()) > 2,(complete)=> { isSuccess = complete; });
 
             yield return new WaitForSeconds(t);
 

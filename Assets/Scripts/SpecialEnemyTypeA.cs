@@ -57,6 +57,8 @@ public class SpecialEnemyTypeA : TestEntity
 
     [Header("Special Attack Field")]
 
+    private bool useRush = false;
+
     [SerializeField]
     private float RushTime;
 
@@ -108,6 +110,7 @@ public class SpecialEnemyTypeA : TestEntity
         AttackTarget.OnDataChanged += AttackTarget_OnDataChanged;
 
         Searcher.OnTriggerEnterEvent += OnSearchTriggerEnter;
+        Searcher.OnTriggerStayEvent += Searcher_OnTriggerStayEvent;
         Searcher.OnTriggerExitEvent += OnSearchTriggerExit;
 
         Detector.OnTriggerEnterEvent += OnTriggerEnterListener;
@@ -116,9 +119,11 @@ public class SpecialEnemyTypeA : TestEntity
 
     public void Initialize(Transform target)
     {
+        useRush = false;
         FirstTarget = target;
         HP.CurrentData = currentData.DefaultHP;
         AttackTarget.CurrentData = target;
+        Agent.isStopped = false;
     }
 
     private void OnEnable()
@@ -129,6 +134,8 @@ public class SpecialEnemyTypeA : TestEntity
     protected override void Dead()
     {
         base.Dead();
+
+        Agent.isStopped = true;
 
         Animator.SetTrigger("Die");
 
@@ -212,8 +219,17 @@ public class SpecialEnemyTypeA : TestEntity
         Agent.SetDestination(obj.position);
     }
 
+    private void Searcher_OnTriggerStayEvent(Collider other)
+    {
+        OnSearchTriggerEnter(other);
+    }
+
+
     private void OnSearchTriggerEnter(Collider other)
     {
+        if (useRush)
+            return;
+
         if (IsMoving)
             return;
 
@@ -241,6 +257,8 @@ public class SpecialEnemyTypeA : TestEntity
 
     private IEnumerator Rush()
     {
+        useRush = true;
+
         Agent.speed = RushSpeed;
         //Agent.velocity = (TargetPosition.ToXZ() - transform.position.ToXZ()).ToVector3FromXZ().normalized * RushSpeed;
         Agent.SetDestination(TargetPosition);
