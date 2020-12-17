@@ -54,7 +54,7 @@ public class TestPlayer : TestEntity
     public event Action OnShot;
     private float ClickTime = 0f;
 
-
+    private NavMeshPath path;
 
     private CoroutineWrapper markerRoutine;
     private float time = 0;
@@ -62,6 +62,8 @@ public class TestPlayer : TestEntity
 
     private void Start()
     {
+        path = new NavMeshPath();
+
         OnclickShot.OnDataChanged += OnclickShot_OnDataChanged;
 
         HP.CurrentData = DefaultHP;
@@ -163,12 +165,18 @@ public class TestPlayer : TestEntity
         //우클릭 이동
         if (Input.GetMouseButton(1))
         {
+            //InputManager.Instance.MouseWorldPosition.OnDataChangedOnce += OnDataChanged;
             var position = InputManager.Instance.MouseWorldPosition.CurrentData;
 
-            Agent.ResetPath();
 
-            Agent.SetDestination(position);
-            Agent.isStopped = false;
+            if(Agent.CalculatePath(position, path))
+            {
+                Agent.SetPath(path);
+            }
+            
+
+            //Agent.SetDestination(pos);
+            //Agent.isStopped = false;
 
             Marker.transform.position = position;
             Marker.SetActive(true);
