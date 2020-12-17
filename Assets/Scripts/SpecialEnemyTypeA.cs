@@ -129,7 +129,17 @@ public class SpecialEnemyTypeA : TestEntity
     protected override void Dead()
     {
         base.Dead();
-        gameObject.SetActive(false);
+
+        Animator.SetTrigger("Die");
+
+        StartCoroutine(DeleayRelease());
+
+        IEnumerator DeleayRelease()
+        {
+            yield return YieldInstructionCache.WaitForSeconds(1.5f);
+
+            gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator AttackRoutine()
@@ -235,12 +245,15 @@ public class SpecialEnemyTypeA : TestEntity
         //Agent.velocity = (TargetPosition.ToXZ() - transform.position.ToXZ()).ToVector3FromXZ().normalized * RushSpeed;
         Agent.SetDestination(TargetPosition);
 
+        Animator.SetBool("Lock_ON", true);
+
         yield return this.WaitforTimeWhileCondition(RushTime,
             (/*condition*/) => Vector2.Distance(transform.position.Round(1).ToXZ(), TargetPosition.Round(1).ToXZ()) > 0.5f,
             (isHit) =>
             {
                 Debug.Log("On End");
                 IsMoving = false;
+                Animator.SetBool("Lock_ON", false);
                 Agent.speed = DefaultSpeed;
             });
 
