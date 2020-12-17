@@ -16,6 +16,7 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     [SerializeField]
     private WaveData[] _waveData;
+    public WaveData[] _WaveData { get { return _waveData; } }
 
     [SerializeField]
     private float SpawnPerSecond;
@@ -32,6 +33,13 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     private int _nowWave = 0;
     private int _nowSpawn = 0;
+
+    public int _killEnemy { get; private set; }
+
+    private void Start()
+    {
+        _killEnemy = 0;
+    }
 
     private void OnEnable()
     {
@@ -64,24 +72,6 @@ public class TestEnemySpawner_New : MonoBehaviour
                 yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
             }
 
-            //if (_nowSpawn < MaxSpawnCount)
-            //{
-            //    _nowSpawn++;
-            //    var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
-            //    if (tester > SpawnRate.x + SpawnRate.y)
-            //    {
-            //        Spawn(2);
-            //    }
-            //    else if (tester > SpawnRate.x)
-            //    {
-            //        Spawn(1);
-            //    }
-            //    else
-            //    {
-            //        Spawn(0);
-            //    }
-            //    yield return YieldInstructionCache.WaitForSeconds(1 / SpawnPerSecond);
-            //}
             yield return YieldInstructionCache.WaitForSeconds(_waveData[_nowWave]._waitTimeForNextWave);
             _nowWave++;
         }
@@ -102,6 +92,7 @@ public class TestEnemySpawner_New : MonoBehaviour
     {
         var instance = entity as TestEnemy;
         Instances.Remove(instance);
+        _killEnemy++;
 
         instance.OnDead -= Instance_OnDead;
 
