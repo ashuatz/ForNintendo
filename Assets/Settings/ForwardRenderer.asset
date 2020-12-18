@@ -70,7 +70,7 @@ MonoBehaviour:
       overrideStencilState: 1
       stencilReference: 1
       stencilCompareFunction: 8
-      passOperation: 0
+      passOperation: 2
       failOperation: 0
       zFailOperation: 2
     cameraSettings:
