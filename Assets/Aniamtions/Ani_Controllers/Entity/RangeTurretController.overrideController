@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tureet_Ani_Controller_Overrid
+  m_Name: RangeTurretController
   m_Controller: {fileID: 9100000, guid: d368904eaf7efb44e9f8152b9d7ce91c, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 2055dacc0c6c88a4cb4b7950af429602, type: 2}
