@@ -51,7 +51,7 @@ public class TestMinion : TestEntity
 
         if (MoveTargetNotifier.CurrentData != null)
         {
-            transform.position = Vector3.Lerp(transform.position, MoveTargetNotifier.CurrentData.position.ToXZ().ToVector3FromXZ(1), 0.05f);
+            transform.position = Vector3.Lerp(transform.position, MoveTargetNotifier.CurrentData.position.ToXZ().ToVector3FromXZ(1.5f), 0.05f);
         }
     }
 

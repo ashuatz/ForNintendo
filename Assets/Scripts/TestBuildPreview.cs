@@ -69,6 +69,25 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
         return allowed;
     }
 
+    public bool TryGetStructure(Vector2 position,out TestStructure instance)
+    {
+        instance = null;
+
+        var target = BuildTester[2];
+        target.transform.position = position.ToVector3FromXZ().Round(1);
+        target.gameObject.SetActive(true);
+
+        if(WorldData.Instance.TryGetStructure(target,out var structure))
+        {
+            instance = structure;
+            return true;
+        }
+
+        return false;
+
+
+    }
+
     private void MouseWorldXZ_OnDataChanged(Vector2 xz)
     {
         if (player.BuildIndex.CurrentData == 0)

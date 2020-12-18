@@ -117,6 +117,23 @@ public class WorldData : MonoSingleton<WorldData>
 
         return false;
     }
+    public bool TryGetStructure(Collider tester,out TestStructure buildedStructure )
+    {
+        buildedStructure = null;
+        foreach (var structureCollider in StructureColliders)
+        {
+            if (Physics.ComputePenetration(tester, tester.transform.position, tester.transform.rotation, structureCollider, structureCollider.transform.position, structureCollider.transform.rotation, out var dir, out var dis))
+            {
+                if (structureCollider.transform.parent.TryGetComponent<TestStructure>(out var target))
+                {
+                    buildedStructure = target;
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public bool IsExist(Vector2 xz)
     {

@@ -154,6 +154,11 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = 3;
         }
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            BuildIndex.CurrentData = -1;
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             Agent.isStopped = true;
@@ -191,23 +196,44 @@ public class TestPlayer : TestEntity
         {
             if (BuildIndex.CurrentData != 0)
             {
-                OnclickShot.CurrentData = false;
 
-                var position = InputManager.Instance.MouseWorldXZ.CurrentData;
-                if (Viewer.CheckBuildAllow(BuildIndex.CurrentData, position))
+                if(BuildIndex.CurrentData < 0)
                 {
-                    var currentMinion = GetCurrentMinion;
-                    if (currentMinion != null)
+                    OnclickShot.CurrentData = false;
+
+                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
+                    if (Viewer.TryGetStructure(position, out var structure))
                     {
-                        currentMinion.OnBuildOnce += WorldData.Instance.AddStructure;
-                        currentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
-                        _BuildResourceManager.UseTower(BuildIndex.CurrentData - 1);
-                        BuildIndex.CurrentData = 0;
+                        var dir = (structure.transform.position.ToXZ() - transform.position.ToXZ()).normalized;
+                        var info = new HitInfo();
+                        info.Amount = 2020;
+                        info.Origin = this;
+                        info.Destination = structure;
+                        info.hitDir = dir.ToVector3FromXZ();
+
+                        structure.TakeDamage(info);
                     }
                 }
                 else
                 {
-                    //Not allowed
+                    OnclickShot.CurrentData = false;
+
+                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
+                    if (Viewer.CheckBuildAllow(BuildIndex.CurrentData, position))
+                    {
+                        var currentMinion = GetCurrentMinion;
+                        if (currentMinion != null)
+                        {
+                            currentMinion.OnBuildOnce += WorldData.Instance.AddStructure;
+                            currentMinion.Build(BuildIndex.CurrentData, position, 1f + BuildIndex.CurrentData);
+                            _BuildResourceManager.UseTower(BuildIndex.CurrentData - 1);
+                            BuildIndex.CurrentData = 0;
+                        }
+                    }
+                    else
+                    {
+                        //Not allowed
+                    }
                 }
             }
             else
