@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &42584375271638311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2393519186884908139}
-  m_Layer: 0
-  m_Name: Body_Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2393519186884908139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42584375271638311}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.54921675, z: 0.99655986}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7515988889407474899}
-  m_Father: {fileID: 4397428602005017153}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &105167533579172031
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,8 +28,8 @@ Transform:
   m_LocalPosition: {x: -1.9351054, y: 3.1552004e-17, z: -1.4209758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2530143283845292241}
-  - {fileID: 4397428602005017153}
+  - {fileID: 7460355143666873269}
+  - {fileID: 4763447457130232711}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +52,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &934845764606716099
+--- !u!1 &319165166574567253
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,34 +60,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7515988889407474899}
+  - component: {fileID: 4922055066666060375}
   m_Layer: 0
-  m_Name: RobotDog_Body_Bone
+  m_Name: RobotDog_Leg_R_F_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7515988889407474899
+--- !u!4 &4922055066666060375
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934845764606716099}
-  m_LocalRotation: {x: 0.5022987, y: 0.49769068, z: 0.5022988, w: 0.49769062}
-  m_LocalPosition: {x: -0.000000022215305, y: 0, z: 0}
+  m_GameObject: {fileID: 319165166574567253}
+  m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
+  m_LocalPosition: {x: -1.0137244, y: -0.11074661, z: 0.32526255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6499749775670832506}
-  - {fileID: 8918605957664479322}
-  - {fileID: 2617455777435968732}
-  - {fileID: 798555147446479022}
-  - {fileID: 1900936536766449864}
-  m_Father: {fileID: 2393519186884908139}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &940226626781716902
+  - {fileID: 7074725352276615001}
+  m_Father: {fileID: 7332496495950221891}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -89.47213, y: 89.99982, z: -179.9998}
+--- !u!1 &324292890259499373
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +91,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6974070431232862439}
+  - component: {fileID: 617566346914073516}
   m_Layer: 0
   m_Name: RobotDog_Leg_L_F_03
   m_TagString: Untagged
@@ -134,113 +99,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6974070431232862439
+--- !u!4 &617566346914073516
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940226626781716902}
+  m_GameObject: {fileID: 324292890259499373}
   m_LocalRotation: {x: 0.000012674215, y: 0.000007974817, z: -0.40207374, w: 0.9156073}
   m_LocalPosition: {x: -0.4653464, y: 0.000000076293944, z: -0.0000044250487}
-  m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
-  m_Children: []
-  m_Father: {fileID: 1748541412730284599}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1314976768977020951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2841173550603177842}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_Foot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2841173550603177842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314976768977020951}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.30934376, y: 0.37839308, z: -0.00000015258793}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8164713806202663562}
-  m_Father: {fileID: 4397428602005017153}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2047056150954439073
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1108700766662249829}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1108700766662249829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047056150954439073}
-  m_LocalRotation: {x: 0.177238, y: -0.6845357, z: -0.17723893, w: 0.6845319}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6503266923266680818}
-  m_Father: {fileID: 8918605957664479322}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2105175908395031585
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6499749775670832506}
-  m_Layer: 0
-  m_Name: Robot_OBJ_Dummy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6499749775670832506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105175908395031585}
-  m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
-  m_LocalPosition: {x: -0.51778054, y: 0.15821868, z: -0.000000076293944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7515988889407474899}
+  m_Father: {fileID: 502772205643933796}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2468405480354128822
+  m_LocalEulerAnglesHint: {x: 1.7409672, y: 0.08508277, z: -32.14481}
+--- !u!1 &683898334991261930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,42 +121,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4397428602005017153}
-  m_Layer: 0
-  m_Name: DogRobot_Root_Dummy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4397428602005017153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2468405480354128822}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2393519186884908139}
-  - {fileID: 2841173550603177842}
-  - {fileID: 1255529576515247564}
-  - {fileID: 7734527397209061603}
-  - {fileID: 8954597202947915063}
-  m_Father: {fileID: 738152716388508165}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2573202221769337163
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 798555147446479022}
+  - component: {fileID: 2261635864156854398}
   m_Layer: 0
   m_Name: RobotDog_Leg_R_B_Point
   m_TagString: Untagged
@@ -291,22 +129,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &798555147446479022
+--- !u!4 &2261635864156854398
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573202221769337163}
+  m_GameObject: {fileID: 683898334991261930}
   m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
   m_LocalPosition: {x: -0.07208916, y: -0.11942535, z: 0.3093466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4440911097415186711}
-  m_Father: {fileID: 7515988889407474899}
+  - {fileID: 585396986562383776}
+  m_Father: {fileID: 7332496495950221891}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2758252649989503783
+  m_LocalEulerAnglesHint: {x: -89.47213, y: 89.99982, z: -179.9998}
+--- !u!1 &795462757178221594
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,29 +152,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4805757273833151982}
+  - component: {fileID: 578433587098124354}
   m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_03
+  m_Name: RobotDog_Leg_L_F_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4805757273833151982
+--- !u!4 &578433587098124354
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2758252649989503783}
-  m_LocalRotation: {x: 0.000012674116, y: 0.000007974857, z: -0.40207374, w: 0.9156073}
-  m_LocalPosition: {x: -0.46534637, y: 0.000000114440915, z: -0.0000044250487}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
-  m_Children: []
-  m_Father: {fileID: 6503266923266680818}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3074575889295775587
+  m_GameObject: {fileID: 795462757178221594}
+  m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
+  m_LocalPosition: {x: -1.0137247, y: -0.11074661, z: -0.32526287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 486267188557586539}
+  m_Father: {fileID: 7332496495950221891}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -89.47213, y: 89.99982, z: -179.9998}
+--- !u!1 &844299023997460814
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,7 +183,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8766499064749852949}
+  - component: {fileID: 8161621178285709439}
   m_Layer: 0
   m_Name: RobotDog_Leg_R_B_03
   m_TagString: Untagged
@@ -352,82 +191,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8766499064749852949
+--- !u!4 &8161621178285709439
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3074575889295775587}
+  m_GameObject: {fileID: 844299023997460814}
   m_LocalRotation: {x: 0.000012674215, y: 0.000007974817, z: -0.40207374, w: 0.9156073}
   m_LocalPosition: {x: -0.46534652, y: 0.000000019073486, z: -0.0000044250487}
-  m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
-  m_Children: []
-  m_Father: {fileID: 5952375059904103928}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3278223362286043138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8918605957664479322}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8918605957664479322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3278223362286043138}
-  m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
-  m_LocalPosition: {x: -0.072089195, y: -0.11942535, z: -0.30934644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1108700766662249829}
-  m_Father: {fileID: 7515988889407474899}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3295326668832355186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5748488461353448877}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_F_IK
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5748488461353448877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3295326668832355186}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8954597202947915063}
+  m_Father: {fileID: 8148754266252738265}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3347750994108847539
+  m_LocalEulerAnglesHint: {x: -0.6098984, y: -1.6463578, z: -33.194366}
+--- !u!1 &967885688917369408
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,7 +213,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7734527397209061603}
+  - component: {fileID: 737793410008650255}
   m_Layer: 0
   m_Name: RobotDog_Leg_R_B_Foot
   m_TagString: Untagged
@@ -443,22 +221,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7734527397209061603
+--- !u!4 &737793410008650255
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3347750994108847539}
+  m_GameObject: {fileID: 967885688917369408}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.30934924, y: 0.37839323, z: -0.00000015258793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2163268094868619696}
-  m_Father: {fileID: 4397428602005017153}
+  - {fileID: 3019045923726070172}
+  m_Father: {fileID: 4763447457130232711}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3506726744193494572
+--- !u!1 &1318514164133206774
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,8 +244,166 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2530143283845292241}
-  - component: {fileID: 7130494104524447383}
+  - component: {fileID: 585396986562383776}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_B_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &585396986562383776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318514164133206774}
+  m_LocalRotation: {x: 0.17723797, y: -0.6845357, z: -0.17723894, w: 0.6845319}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8148754266252738265}
+  m_Father: {fileID: 2261635864156854398}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.045958634, y: -89.77356, z: -39.38088}
+--- !u!1 &1364656931649174991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4763447457130232711}
+  m_Layer: 0
+  m_Name: DogRobot_Root_Dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4763447457130232711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364656931649174991}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8535126107979474611}
+  - {fileID: 1539932709717537429}
+  - {fileID: 7081739696267694018}
+  - {fileID: 737793410008650255}
+  - {fileID: 928320851727002260}
+  m_Father: {fileID: 738152716388508165}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1506711070102994650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919432140496155654}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_B_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919432140496155654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506711070102994650}
+  m_LocalRotation: {x: 0.17723797, y: -0.6845357, z: -0.17723894, w: 0.6845319}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 300491126279692817}
+  m_Father: {fileID: 4765320257685006830}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.5313893, y: -91.38052, z: -21.418945}
+--- !u!1 &2038752839986380449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502772205643933796}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_F_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &502772205643933796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038752839986380449}
+  m_LocalRotation: {x: -0.0000053966887, y: 0.000011020014, z: 0.61873907, w: 0.7855966}
+  m_LocalPosition: {x: -0.5002918, y: -0.000004043579, z: -0.000011024475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 617566346914073516}
+  m_Father: {fileID: 486267188557586539}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0010144039, y: 0.0006904066, z: 69.67838}
+--- !u!1 &2515765025303409457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5094818881071765068}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_F_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5094818881071765068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515765025303409457}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7081739696267694018}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2615994039513690650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7460355143666873269}
+  - component: {fileID: 3965072838801551397}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -475,27 +411,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2530143283845292241
+--- !u!4 &7460355143666873269
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506726744193494572}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.00000003090862, w: 0.7071068}
-  m_LocalPosition: {x: -0.000000064009605, y: 0.99988186, z: 0.25013694}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_GameObject: {fileID: 2615994039513690650}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 738152716388508165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &7130494104524447383
+--- !u!137 &3965072838801551397
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506726744193494572}
+  m_GameObject: {fileID: 2615994039513690650}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -507,7 +443,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 27bec348bed892048af2f6779bb32ede, type: 2}
+  - {fileID: 8637527682490492027, guid: a84ac6211c08b234080b6724d82f726f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,28 +468,28 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8545447256379345787, guid: e3e94da592105884a9a0fac113f3503e, type: 3}
+  m_Mesh: {fileID: 629775657983748871, guid: a84ac6211c08b234080b6724d82f726f, type: 3}
   m_Bones:
-  - {fileID: 7515988889407474899}
-  - {fileID: 3019188327219312533}
-  - {fileID: 1108700766662249829}
-  - {fileID: 4440911097415186711}
-  - {fileID: 6990559069904509348}
-  - {fileID: 6503266923266680818}
-  - {fileID: 5952375059904103928}
-  - {fileID: 8766499064749852949}
-  - {fileID: 4805757273833151982}
-  - {fileID: 1748541412730284599}
-  - {fileID: 6974070431232862439}
-  - {fileID: 5676274435346031598}
-  - {fileID: 7065597803926756654}
+  - {fileID: 7332496495950221891}
+  - {fileID: 919432140496155654}
+  - {fileID: 585396986562383776}
+  - {fileID: 8161621178285709439}
+  - {fileID: 8148754266252738265}
+  - {fileID: 4336589577425767104}
+  - {fileID: 300491126279692817}
+  - {fileID: 617566346914073516}
+  - {fileID: 486267188557586539}
+  - {fileID: 502772205643933796}
+  - {fileID: 7074725352276615001}
+  - {fileID: 1400305038521333773}
+  - {fileID: 8235409364870630184}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 7515988889407474899}
+  m_RootBone: {fileID: 7332496495950221891}
   m_AABB:
-    m_Center: {x: -0.51419055, y: -0.40113187, z: 0.0000015497208}
-    m_Extent: {x: 0.8645426, y: 0.5973069, z: 0.49631765}
+    m_Center: {x: -0.53190994, y: -0.40270966, z: 0.0000018179417}
+    m_Extent: {x: 0.92549217, y: 0.5988849, z: 0.49631783}
   m_DirtyAABB: 0
---- !u!1 &3648576202800070181
+--- !u!1 &3329365457058245370
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,282 +497,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6503266923266680818}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6503266923266680818
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648576202800070181}
-  m_LocalRotation: {x: -0.0000053966883, y: 0.000011020015, z: 0.618739, w: 0.7855966}
-  m_LocalPosition: {x: -0.50029176, y: -0.0000041198728, z: -0.000010948181}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4805757273833151982}
-  m_Father: {fileID: 1108700766662249829}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3676665252977516154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8164713806202663562}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_B_IK
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8164713806202663562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676665252977516154}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2841173550603177842}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3968484656835684315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8954597202947915063}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_F_Foot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8954597202947915063
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3968484656835684315}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3252654, y: -0.5632824, z: -0.000000076293944}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5748488461353448877}
-  m_Father: {fileID: 4397428602005017153}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4236245058439482471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1255529576515247564}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_F_Foot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1255529576515247564
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4236245058439482471}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32526, y: -0.56328243, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5513330111369594122}
-  m_Father: {fileID: 4397428602005017153}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4252172823067970865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1748541412730284599}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_F_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1748541412730284599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252172823067970865}
-  m_LocalRotation: {x: -0.0000053966883, y: 0.000011020015, z: 0.618739, w: 0.7855966}
-  m_LocalPosition: {x: -0.5002918, y: -0.000004043579, z: -0.000011024475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6974070431232862439}
-  m_Father: {fileID: 3019188327219312533}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4587953307275721471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7065597803926756654}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_F_03
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7065597803926756654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587953307275721471}
-  m_LocalRotation: {x: 0.000012674215, y: 0.000007974817, z: -0.40207374, w: 0.9156073}
-  m_LocalPosition: {x: -0.46534637, y: 0.000000114440915, z: -0.0000044250487}
-  m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
-  m_Children: []
-  m_Father: {fileID: 5676274435346031598}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4635683365784955913
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4440911097415186711}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_B_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4440911097415186711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635683365784955913}
-  m_LocalRotation: {x: 0.177238, y: -0.6845357, z: -0.17723893, w: 0.6845319}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5952375059904103928}
-  m_Father: {fileID: 798555147446479022}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5324761052018091601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5513330111369594122}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_L_F_IK
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5513330111369594122
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5324761052018091601}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1255529576515247564}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7255658071827185629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2163268094868619696}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_B_IK
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2163268094868619696
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7255658071827185629}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7734527397209061603}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7627495777056703927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6990559069904509348}
+  - component: {fileID: 7074725352276615001}
   m_Layer: 0
   m_Name: RobotDog_Leg_R_F_01
   m_TagString: Untagged
@@ -844,22 +505,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6990559069904509348
+--- !u!4 &7074725352276615001
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627495777056703927}
-  m_LocalRotation: {x: 0.177238, y: -0.6845357, z: -0.17723893, w: 0.6845319}
+  m_GameObject: {fileID: 3329365457058245370}
+  m_LocalRotation: {x: 0.17723797, y: -0.6845357, z: -0.17723894, w: 0.6845319}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5676274435346031598}
-  m_Father: {fileID: 1900936536766449864}
+  - {fileID: 8235409364870630184}
+  m_Father: {fileID: 4922055066666060375}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7809579423151944899
+  m_LocalEulerAnglesHint: {x: 2.8828216, y: -95.2547, z: -14.997001}
+--- !u!1 &3525317326414000756
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -867,30 +528,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5676274435346031598}
+  - component: {fileID: 1400305038521333773}
   m_Layer: 0
-  m_Name: RobotDog_Leg_R_F_02
+  m_Name: RobotDog_Leg_R_F_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5676274435346031598
+--- !u!4 &1400305038521333773
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7809579423151944899}
-  m_LocalRotation: {x: -0.0000053966883, y: 0.000011020015, z: 0.618739, w: 0.7855966}
-  m_LocalPosition: {x: -0.5002918, y: -0.000004081726, z: -0.000011024475}
+  m_GameObject: {fileID: 3525317326414000756}
+  m_LocalRotation: {x: 0.000012674215, y: 0.000007974817, z: -0.40207374, w: 0.9156073}
+  m_LocalPosition: {x: -0.46534637, y: 0.000000114440915, z: -0.0000044250487}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7065597803926756654}
-  m_Father: {fileID: 6990559069904509348}
+  m_Children: []
+  m_Father: {fileID: 8235409364870630184}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8000880928527063574
+  m_LocalEulerAnglesHint: {x: 0.12346417, y: 1.6098546, z: -64.63576}
+--- !u!1 &3791502451288195633
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -898,30 +558,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1900936536766449864}
+  - component: {fileID: 4765320257685006830}
   m_Layer: 0
-  m_Name: RobotDog_Leg_R_F_Point
+  m_Name: RobotDog_Leg_L_B_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1900936536766449864
+--- !u!4 &4765320257685006830
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8000880928527063574}
+  m_GameObject: {fileID: 3791502451288195633}
   m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
-  m_LocalPosition: {x: -1.0137244, y: -0.11074661, z: 0.32526255}
+  m_LocalPosition: {x: -0.072089195, y: -0.11942535, z: -0.30934644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6990559069904509348}
-  m_Father: {fileID: 7515988889407474899}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8141462019691436365
+  - {fileID: 919432140496155654}
+  m_Father: {fileID: 7332496495950221891}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -89.47213, y: 89.99982, z: -179.9998}
+--- !u!1 &4114138062891131167
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -929,61 +589,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2617455777435968732}
+  - component: {fileID: 3794859011869485622}
   m_Layer: 0
-  m_Name: RobotDog_Leg_L_F_Point
+  m_Name: Robot_OBJ_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2617455777435968732
+--- !u!4 &3794859011869485622
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8141462019691436365}
+  m_GameObject: {fileID: 4114138062891131167}
   m_LocalRotation: {x: 0.5022988, y: 0.4976906, z: 0.5022987, w: -0.49769068}
-  m_LocalPosition: {x: -1.0137247, y: -0.11074661, z: -0.32526287}
+  m_LocalPosition: {x: -0.51778054, y: 0.15821868, z: -0.000000076293944}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3019188327219312533}
-  m_Father: {fileID: 7515988889407474899}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8227107284386716508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5952375059904103928}
-  m_Layer: 0
-  m_Name: RobotDog_Leg_R_B_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5952375059904103928
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8227107284386716508}
-  m_LocalRotation: {x: -0.0000053966883, y: 0.000011020015, z: 0.618739, w: 0.7855966}
-  m_LocalPosition: {x: -0.50029176, y: -0.0000041198728, z: -0.000010948181}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8766499064749852949}
-  m_Father: {fileID: 4440911097415186711}
+  m_Children: []
+  m_Father: {fileID: 7332496495950221891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8888422698268233230
+--- !u!1 &4464355493032520306
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -991,7 +619,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3019188327219312533}
+  - component: {fileID: 1539932709717537429}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_B_Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539932709717537429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464355493032520306}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.30934376, y: 0.37839308, z: -0.00000015258793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6177676385362636937}
+  m_Father: {fileID: 4763447457130232711}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4511386962340004023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486267188557586539}
   m_Layer: 0
   m_Name: RobotDog_Leg_L_F_01
   m_TagString: Untagged
@@ -999,18 +658,359 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3019188327219312533
+--- !u!4 &486267188557586539
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8888422698268233230}
-  m_LocalRotation: {x: 0.177238, y: -0.6845357, z: -0.17723893, w: 0.6845319}
+  m_GameObject: {fileID: 4511386962340004023}
+  m_LocalRotation: {x: 0.17723797, y: -0.6845357, z: -0.17723894, w: 0.6845319}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1748541412730284599}
-  m_Father: {fileID: 2617455777435968732}
+  - {fileID: 502772205643933796}
+  m_Father: {fileID: 578433587098124354}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.25728574, y: -93.56227, z: -38.19322}
+--- !u!1 &4805088568028670457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300491126279692817}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_B_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300491126279692817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805088568028670457}
+  m_LocalRotation: {x: -0.0000053966887, y: 0.000011020014, z: 0.61873907, w: 0.7855966}
+  m_LocalPosition: {x: -0.50029176, y: -0.0000041198728, z: -0.000010948181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4336589577425767104}
+  m_Father: {fileID: 919432140496155654}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0017659292, y: 0.00020786046, z: 92.930855}
+--- !u!1 &5330037852596786732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7081739696267694018}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_F_Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7081739696267694018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330037852596786732}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.32526, y: -0.56328243, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5094818881071765068}
+  m_Father: {fileID: 4763447457130232711}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5457024985566579646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5704127894194926434}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_F_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5704127894194926434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5457024985566579646}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 928320851727002260}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5840828422346145336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928320851727002260}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_F_Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928320851727002260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840828422346145336}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3252654, y: -0.5632824, z: -0.000000076293944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5704127894194926434}
+  m_Father: {fileID: 4763447457130232711}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6697924618265019190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8148754266252738265}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_B_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8148754266252738265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697924618265019190}
+  m_LocalRotation: {x: -0.0000053966887, y: 0.000011020014, z: 0.61873907, w: 0.7855966}
+  m_LocalPosition: {x: -0.50029176, y: -0.0000041198728, z: -0.000010948181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8161621178285709439}
+  m_Father: {fileID: 585396986562383776}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00073572324, y: 0.000721303, z: 62.16929}
+--- !u!1 &7083960257590184323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4336589577425767104}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_B_03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4336589577425767104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083960257590184323}
+  m_LocalRotation: {x: 0.000012674116, y: 0.000007974857, z: -0.40207374, w: 0.9156073}
+  m_LocalPosition: {x: -0.46534637, y: 0.000000114440915, z: -0.0000044250487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 300491126279692817}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.9452077, y: 0.17238837, z: -56.149643}
+--- !u!1 &7333909039711172186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6177676385362636937}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_L_B_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6177676385362636937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333909039711172186}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1539932709717537429}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7493674168251281030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8535126107979474611}
+  m_Layer: 0
+  m_Name: Body_Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8535126107979474611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7493674168251281030}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.54921675, z: 0.99655986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7332496495950221891}
+  m_Father: {fileID: 4763447457130232711}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.5544038, y: -0.00869636, z: -2.9996068}
+--- !u!1 &8093175686495344768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3019045923726070172}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_B_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3019045923726070172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093175686495344768}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000049209593, y: 0.00000022888183, z: 0.124158435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 737793410008650255}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8335858691371691261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7332496495950221891}
+  m_Layer: 0
+  m_Name: RobotDog_Body_Bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7332496495950221891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335858691371691261}
+  m_LocalRotation: {x: 0.5022987, y: 0.4976907, z: 0.5022988, w: 0.4976906}
+  m_LocalPosition: {x: -0.000000022215305, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3794859011869485622}
+  - {fileID: 4765320257685006830}
+  - {fileID: 578433587098124354}
+  - {fileID: 2261635864156854398}
+  - {fileID: 4922055066666060375}
+  m_Father: {fileID: 8535126107979474611}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0000054860548, y: 90, z: 90.528046}
+--- !u!1 &9051141114064295888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8235409364870630184}
+  m_Layer: 0
+  m_Name: RobotDog_Leg_R_F_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8235409364870630184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051141114064295888}
+  m_LocalRotation: {x: -0.0000053966887, y: 0.000011020014, z: 0.61873907, w: 0.7855966}
+  m_LocalPosition: {x: -0.5002918, y: -0.000004081726, z: -0.000011024475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1400305038521333773}
+  m_Father: {fileID: 7074725352276615001}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0017484286, y: 0.00023176936, z: 91.90043}
