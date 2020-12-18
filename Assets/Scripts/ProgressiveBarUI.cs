@@ -35,7 +35,7 @@ public class ProgressiveBarUI : MonoBehaviour
 
     void DrawProgressiveBar()
     {
-        for (int i = 0; i < _sectorMany; i++)
+        for (int i = 0; i < _progressiveBar.Length; i++)
         {
             int kill = 0;
             for (int j = 0; j < _sector[i]._spawners.Length; j++)
