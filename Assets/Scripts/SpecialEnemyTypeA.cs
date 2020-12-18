@@ -325,7 +325,7 @@ public class SpecialEnemyTypeA : TestEntity
     {
         if (AttackTarget.CurrentData != null)
         {
-            if (!AttackTarget.CurrentData.gameObject.activeInHierarchy)
+            if (!AttackTarget.CurrentData.gameObject.activeInHierarchy && FirstTarget != null)
                 AttackTarget.CurrentData = FirstTarget;
 
             Agent.SetDestination(AttackTarget.CurrentData.position);
