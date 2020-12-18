@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Util;
 
-public class TestBuildPreview : MonoBehaviour
+public class TestBuildPreview : MonoSingleton<TestBuildPreview>
 {
     [SerializeField]
     private TestPlayer player;
@@ -14,11 +15,44 @@ public class TestBuildPreview : MonoBehaviour
     [SerializeField]
     private List<GameObject> BuildObjects;
 
+
     [SerializeField]
     private List<Collider> BuildTester;
 
-    private void Awake()
+
+    [SerializeField]
+    private GameObject BuildPreviewOrigins;
+
+
+    private List<GameObject> Pool = new List<GameObject>();
+
+    public void AddToPool(GameObject instance)
     {
+        for (int i = 0; i < 3; ++i) instance.transform.GetChild(i).gameObject.SetActive(false);
+        instance.gameObject.SetActive(false);
+        Pool.Add(instance);
+    }
+
+    public GameObject GetPreviewFormPool(int index)
+    {
+        var instance = Pool.Find((_instace) => !_instace.gameObject.activeInHierarchy);
+
+        if (instance == null)
+        {
+            instance = Instantiate(BuildPreviewOrigins);
+        }
+
+        instance.transform.GetChild(index).gameObject.SetActive(true);
+        Pool.Remove(instance);
+        return instance;
+    }
+
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
         player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
         InputManager.Instance.MouseWorldXZ.OnDataChanged += MouseWorldXZ_OnDataChanged;
     }

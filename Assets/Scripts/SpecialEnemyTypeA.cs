@@ -216,6 +216,9 @@ public class SpecialEnemyTypeA : TestEntity
         if (IsMoving)
             return;
 
+        if (obj == null)
+            return;
+
         Agent.SetDestination(obj.position);
     }
 

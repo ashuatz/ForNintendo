@@ -28,11 +28,15 @@ public class TestStructure : TestEntity
 
     private List<TestEntity> Targets = new List<TestEntity>();
 
+    private CoroutineWrapper RotationWrapper;
+
     [SerializeField]
     Animator _animator;
+    
 
     private void Awake()
     {
+        RotationWrapper = new CoroutineWrapper(this);
         CurrentData = Datas.Find(data => data.Type == myType);
 
         HP.CurrentData = CurrentData.DefaultHP;
@@ -78,11 +82,32 @@ public class TestStructure : TestEntity
                 info.Destination = target;
                 info.hitDir = dir.ToVector3FromXZ();
 
-                _animator.transform.GetChild(1).rotation = Quaternion.LookRotation(dir.ToVector3FromXZ()) * Quaternion.Euler(-90,0,0);
+                var targetQuaternion = Quaternion.LookRotation(dir.ToVector3FromXZ()) * Quaternion.Euler(-90, 0, 0);
+                var runtime = myType == StructureType.MeleeTurret ? 8f / 24 : 8f / 30;
+                RotationWrapper.StartSingleton(RotateToTarget(targetQuaternion, runtime)).SetOnComplete(() =>
+                {
+                    target.TakeDamage(info);
+                });
 
-                target.TakeDamage(info);
                 _animator.SetTrigger("Atk");
+
                 target.OnDead += OnTargetDead;
+
+                //local Function
+                IEnumerator RotateToTarget(Quaternion targetRotation, float _runtime)
+                {
+                    float t = 0;
+                    var defaultRotation = _animator.transform.GetChild(1).rotation;
+
+                    while (t < _runtime)
+                    {
+                        _animator.transform.GetChild(1).rotation = Quaternion.Lerp(defaultRotation, targetRotation, t / _runtime);
+                        t += Time.deltaTime;
+                        yield return null;
+                    }
+
+                    _animator.transform.GetChild(1).rotation = targetRotation;
+                }
 
                 void OnTargetDead(TestEntity t)
                 {

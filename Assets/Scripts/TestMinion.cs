@@ -68,6 +68,10 @@ public class TestMinion : TestEntity
         {
             isBuilding = true;
 
+            var preview = TestBuildPreview.Instance.GetPreviewFormPool(idx - 1);
+            preview.transform.position = pos.ToVector3FromXZ().Round(1);
+            preview.SetActive(true);
+
             var obj = Instantiate(BuildObjects[idx - 1]);
             var Component = obj.GetComponent<TestStructure>();
             obj.transform.position = pos.ToVector3FromXZ().Round(1);
@@ -80,11 +84,14 @@ public class TestMinion : TestEntity
 
             bool isSuccess = false;
 
-            yield return this.WaitforTimeWhileCondition(3, () => Vector2.Distance(pos, transform.position.ToXZ()) > 2,(complete)=> { isSuccess = complete; });
+            yield return this.WaitforTimeWhileCondition(3, () => Vector2.Distance(pos, transform.position.ToXZ()) > 2, (complete) => { isSuccess = complete; });
 
             yield return new WaitForSeconds(t);
 
             MoveTargetNotifier.CurrentData = PlayerProbe;
+
+            TestBuildPreview.Instance.AddToPool(preview);
+
             obj.SetActive(true);
             isBuilding = false;
         }

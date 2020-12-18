@@ -172,6 +172,7 @@ public class TestPlayer : TestEntity
             if(Agent.CalculatePath(position, path))
             {
                 Agent.SetPath(path);
+                Agent.isStopped = false;
             }
             
 
