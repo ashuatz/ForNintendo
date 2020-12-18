@@ -111,7 +111,7 @@ public class TestStructure : TestEntity
 
                 void OnTargetDead(TestEntity t)
                 {
-                    Targets.Remove(t);
+                    Targets.RemoveAll((e) => e == t);
                     t.OnDead -= OnTargetDead;
                 }
                 break;
@@ -132,6 +132,9 @@ public class TestStructure : TestEntity
     {
         if (other.TryGetComponent<TestEntity>(out var entity))
         {
+            if (Targets.Contains(entity))
+                return;
+
             if (entity.Type == EntityType.Enemy)
                 Targets.Add(entity);
         }
@@ -143,7 +146,7 @@ public class TestStructure : TestEntity
         if (other.TryGetComponent<TestEntity>(out var entity))
         {
             if (entity.Type == EntityType.Enemy)
-                Targets.Remove(entity);
+                Targets.RemoveAll((e) => e == entity);
         }
     }
 

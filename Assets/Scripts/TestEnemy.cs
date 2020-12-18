@@ -52,6 +52,7 @@ public class TestEnemy : TestEntity
     public EnemyType MyEnemyType { get => myEnemyType; }
 
     private CoroutineWrapper HitWrapper;
+    private CoroutineWrapper InitWrapper;
 
     private Transform FirstTarget;
 
@@ -69,6 +70,7 @@ public class TestEnemy : TestEntity
         base.OnHit += TestEnemy_OnHit;
 
         HitWrapper = CoroutineWrapper.Generate(this);
+        InitWrapper = CoroutineWrapper.Generate(this);
 
         HP.CurrentData = currentData.DefaultHP;
 
@@ -85,7 +87,13 @@ public class TestEnemy : TestEntity
         HP.CurrentData = currentData.DefaultHP;
         AttackTarget.CurrentData = target;
 
-        Agent.isStopped = false;
+        InitWrapper.StartSingleton(AgentInit());
+
+        IEnumerator AgentInit()
+        {
+            yield return new WaitUntil(() => Agent.isOnNavMesh);
+            Agent.isStopped = false;
+        }
     }
 
     private void OnEnable()
@@ -155,6 +163,9 @@ public class TestEnemy : TestEntity
 
     private void TestEnemy_OnHit(HitInfo info)
     {
+        if (HP.CurrentData <= 0)
+            return;
+
         HitWrapper.StartSingleton(HitEffect(0.2f));
 
         if (AttackTarget.CurrentData == null)
@@ -179,6 +190,9 @@ public class TestEnemy : TestEntity
 
     private void AttackTarget_OnDataChanged(Transform obj)
     {
+        if (obj == null)
+            return;
+
         Agent.SetDestination(obj.position);
     }
 
