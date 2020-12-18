@@ -27,7 +27,7 @@ public class BuildResourceUI : MonoBehaviour
 
         for(int i=0;i<_slots.Length;i++)
         {
-            _coolImage[i] = _slots[i].transform.GetChild(1).GetComponent<Image>();
+            _coolImage[i] = _slots[i].transform.GetChild(0).GetComponent<Image>();
             _haveText[i] = _slots[i].transform.GetChild(2).GetComponent<Text>();
         }
         _settingOk = true;
