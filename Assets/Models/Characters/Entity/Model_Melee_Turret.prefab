@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 928877567811608362}
   - component: {fileID: 9150087191336909435}
   m_Layer: 0
-  m_Name: Ani_Melee_Turret
+  m_Name: Model_Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553900514900510096}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 553900514900510096}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec5e6e7c135aee149a152400b8eb02f6, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -110,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6360985775075344582, guid: 294a8a2db7febff4db5cfa68ac096f77, type: 3}
+  - {fileID: 2100000, guid: b0e360eabb83bf3438190b7d79d750c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -255,7 +255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6360985775075344582, guid: 294a8a2db7febff4db5cfa68ac096f77, type: 3}
+  - {fileID: 2100000, guid: b0e360eabb83bf3438190b7d79d750c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,7 +335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6360985775075344582, guid: 294a8a2db7febff4db5cfa68ac096f77, type: 3}
+  - {fileID: 2100000, guid: b0e360eabb83bf3438190b7d79d750c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -446,7 +446,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6360985775075344582, guid: 294a8a2db7febff4db5cfa68ac096f77, type: 3}
+  - {fileID: 2100000, guid: b0e360eabb83bf3438190b7d79d750c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -526,7 +526,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6360985775075344582, guid: 294a8a2db7febff4db5cfa68ac096f77, type: 3}
+  - {fileID: 2100000, guid: b0e360eabb83bf3438190b7d79d750c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
