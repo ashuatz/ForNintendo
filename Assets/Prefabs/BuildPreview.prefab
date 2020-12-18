@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 91471305}
   - component: {fileID: 91471307}
   - component: {fileID: 91471306}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 134235271}
   - component: {fileID: 134235273}
   - component: {fileID: 134235272}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263804354}
   - component: {fileID: 263804355}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Range_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 269478231}
   - component: {fileID: 269478233}
   - component: {fileID: 269478232}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 292620008}
   - component: {fileID: 292620010}
   - component: {fileID: 292620009}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402259545}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422280056}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452743686}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 471212299}
   - component: {fileID: 471212301}
   - component: {fileID: 471212300}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 526013609}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 580116690}
   - component: {fileID: 580116692}
   - component: {fileID: 580116691}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 588546355}
   - component: {fileID: 588546357}
   - component: {fileID: 588546356}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 637833957}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 641205798}
   - component: {fileID: 641205800}
   - component: {fileID: 641205799}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 801849429}
   - component: {fileID: 801849432}
   - component: {fileID: 801849430}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: TesterQ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 959030487}
   - component: {fileID: 959030489}
   - component: {fileID: 959030488}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 1010704269}
   - component: {fileID: 1010704271}
   - component: {fileID: 1010704270}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1065,7 +1065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1099950571}
   - component: {fileID: 1099950572}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Sholdr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 1116543097}
   - component: {fileID: 1116543099}
   - component: {fileID: 1116543098}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130092925}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Rotation_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 1193793743}
   - component: {fileID: 1193793745}
   - component: {fileID: 1193793744}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276899075}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1340,7 +1340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1294780907}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: PreviewInstance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1375,7 +1375,7 @@ GameObject:
   - component: {fileID: 1344560982}
   - component: {fileID: 1344560984}
   - component: {fileID: 1344560983}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1453,7 +1453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1455236848}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 1456837955}
   - component: {fileID: 1456837957}
   - component: {fileID: 1456837956}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1465661470}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Pilar_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1597,7 +1597,7 @@ GameObject:
   - component: {fileID: 1587351605}
   - component: {fileID: 1587351607}
   - component: {fileID: 1587351606}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 1633350812}
   - component: {fileID: 1633350814}
   - component: {fileID: 1633350813}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1755,7 +1755,7 @@ GameObject:
   - component: {fileID: 1777807831}
   - component: {fileID: 1777807833}
   - component: {fileID: 1777807832}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1833,7 +1833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841691630}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,7 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880776603}
   - component: {fileID: 1880776604}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,7 +1918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894257348}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 1943539245}
   - component: {fileID: 1943539248}
   - component: {fileID: 1943539246}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: TesterW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990988903}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2034,7 +2034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046227681}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Rotation_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2068,7 +2068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123597549}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret_Rotation_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8017313074040771942}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Pilar_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2133,7 +2133,7 @@ GameObject:
   - component: {fileID: 5435076172323252920}
   - component: {fileID: 1179818199147764617}
   - component: {fileID: 5481013974920681106}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2210,7 +2210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948057683551751451}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2245,7 +2245,7 @@ GameObject:
   - component: {fileID: 5612671468946404624}
   - component: {fileID: 7860145344685991277}
   - component: {fileID: 7517493567068395334}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6212337771295576662}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Rotation_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,7 +2356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525552478523922157}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525552478538836819}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2476,7 +2476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525552479370060688}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: PreviewRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2511,7 +2511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525552479807364453}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2544,7 +2544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3087454894059087548}
   - component: {fileID: 2885659109846452678}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2597,7 +2597,7 @@ GameObject:
   - component: {fileID: 3891741720324951425}
   - component: {fileID: 763151905657290329}
   - component: {fileID: 4686968605261811192}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2676,7 +2676,7 @@ GameObject:
   - component: {fileID: 6223269838376903179}
   - component: {fileID: 8634710990435367766}
   - component: {fileID: 4303005717182101088}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2753,7 +2753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840502492893555022}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Melee_Turret_Rotation_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2787,7 +2787,7 @@ GameObject:
   - component: {fileID: 5563078543438818708}
   - component: {fileID: 2720885144073552415}
   - component: {fileID: 3084451993938691845}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2867,7 +2867,7 @@ GameObject:
   - component: {fileID: 3735641657947724834}
   - component: {fileID: 4599585263481773084}
   - component: {fileID: 2632404982386622322}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2947,7 +2947,7 @@ GameObject:
   - component: {fileID: 3074899683021307193}
   - component: {fileID: 3293338392898964119}
   - component: {fileID: 1259345424787564502}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3027,7 +3027,7 @@ GameObject:
   - component: {fileID: 7972844565807082544}
   - component: {fileID: 149157048318709762}
   - component: {fileID: 6910312057816616643}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3106,7 +3106,7 @@ GameObject:
   - component: {fileID: 8283721190817530306}
   - component: {fileID: 2806680643886560436}
   - component: {fileID: 1613214902429165779}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3184,7 +3184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6244707445102951064}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3217,7 +3217,7 @@ GameObject:
   - component: {fileID: 2554105967457159896}
   - component: {fileID: 238485365502491428}
   - component: {fileID: 9219615021251340491}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3296,7 +3296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595043192659190320}
   - component: {fileID: 2860848855338213065}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Sholdr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3348,7 +3348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829932542888614846}
   - component: {fileID: 4026826367094067760}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Model_Range_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3399,7 +3399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2883946049880050110}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Rotation_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3433,7 +3433,7 @@ GameObject:
   - component: {fileID: 1629037156989696202}
   - component: {fileID: 1996007372654576128}
   - component: {fileID: 7269783170436993591}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3514,7 +3514,7 @@ GameObject:
   - component: {fileID: 4166358405660390107}
   - component: {fileID: 1920677512418867956}
   - component: {fileID: 4696878519104571316}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3593,7 +3593,7 @@ GameObject:
   - component: {fileID: 2385685107499180940}
   - component: {fileID: 2421530471486601831}
   - component: {fileID: 7040306725195048377}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3671,7 +3671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5607491272787673367}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3702,7 +3702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6767027603868221153}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3735,7 +3735,7 @@ GameObject:
   - component: {fileID: 6507009132276646426}
   - component: {fileID: 3717861600259924512}
   - component: {fileID: 977125868964980715}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Range_Turret_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3814,7 +3814,7 @@ GameObject:
   - component: {fileID: 6600412777776958416}
   - component: {fileID: 7614840430426334601}
   - component: {fileID: 6735921211792667754}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3894,7 +3894,7 @@ GameObject:
   - component: {fileID: 3812751293283078287}
   - component: {fileID: 2943209139657268658}
   - component: {fileID: 2057306518106433174}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackRangeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3971,7 +3971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3136062982322039253}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4002,7 +4002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6413084320797366766}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel_Ani_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4033,7 +4033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566818555556910357}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wing_Ani_Point_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4066,7 +4066,7 @@ GameObject:
   - component: {fileID: 2746902569765579322}
   - component: {fileID: 7343553787617101673}
   - component: {fileID: 7047344305039008409}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrier_Sholder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
