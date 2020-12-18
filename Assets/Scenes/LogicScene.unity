@@ -6611,6 +6611,12 @@ PrefabInstance:
       propertyPath: FirstAttackTarget
       value: 
       objectReference: {fileID: 1680598682}
+    - target: {fileID: 2231433537594293185, guid: 0d7cc43a0ffd40249b5ee7be76a7dda8,
+        type: 3}
+      propertyPath: EnemyOrigin.Array.data[1]
+      value: 
+      objectReference: {fileID: 868969886890074495, guid: 89befae775fb55944af525e128fff88c,
+        type: 3}
     - target: {fileID: 6517042108012667170, guid: 0d7cc43a0ffd40249b5ee7be76a7dda8,
         type: 3}
       propertyPath: m_RootOrder
@@ -6685,6 +6691,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 801849430, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 801849430, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 801849430, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943539246, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943539246, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943539246, guid: 48928b6a39b24704ab4b567d41a34fd4, type: 3}
+      propertyPath: m_Size.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1525552478618469704, guid: 48928b6a39b24704ab4b567d41a34fd4,
         type: 3}
       propertyPath: player
