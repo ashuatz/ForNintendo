@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 249742990}
   - component: {fileID: 249742983}
   m_Layer: 0
-  m_Name: Structure_Turret
+  m_Name: Build_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,12 +468,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1381932082480014499}
     m_Modifications:
-    - target: {fileID: 2037204182182798561, guid: 45ffb65d6820f274292ac9c8e00b27d6,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 79ade8903db24e84ca0a4b057873be2c,
-        type: 2}
     - target: {fileID: 2572609683336463752, guid: 45ffb65d6820f274292ac9c8e00b27d6,
         type: 3}
       propertyPath: m_RootOrder
