@@ -77,7 +77,7 @@ public class TestEnemySpawner : MonoBehaviour
 
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
         instance.Initialize(FirstAttackTarget);
-        instance.OnDead += Instance_OnDead;
+        instance.OnDead += SpecialEnemyInstance_Ondead;
         instance.gameObject.SetActive(true);
 
         SpecialEnemyInstances.Add(instance);
@@ -99,7 +99,7 @@ public class TestEnemySpawner : MonoBehaviour
         var instance = entity as SpecialEnemyTypeA;
         SpecialEnemyInstances.Remove(instance);
 
-        instance.OnDead -= Instance_OnDead;
+        instance.OnDead -= SpecialEnemyInstance_Ondead;
 
         AddToPool(instance);
     }

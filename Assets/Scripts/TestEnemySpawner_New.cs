@@ -26,10 +26,15 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     [SerializeField]
     private List<TestEnemy> EnemyOrigin;
+    [SerializeField]
+    private SpecialEnemyTypeA SpecialEnemyAOrigin;
+
 
     private List<TestEnemy> Instances = new List<TestEnemy>();
+    private List<SpecialEnemyTypeA> SpecialEnemyInstances = new List<SpecialEnemyTypeA>();
 
     private Dictionary<int, List<TestEnemy>> Pool = new Dictionary<int, List<TestEnemy>>();
+    private List<SpecialEnemyTypeA> SpecialEnemyPool = new List<SpecialEnemyTypeA>();
 
     private int _nowWave = 0;
     private int _nowSpawn = 0;
@@ -77,6 +82,26 @@ public class TestEnemySpawner_New : MonoBehaviour
         }
     }
 
+    private void SpawnSpecialEnemyA()
+    {
+        var instance = SpecialEnemyPool.Find((seta) => !seta.gameObject.activeInHierarchy);
+        if (instance == null)
+        {
+            instance = Instantiate(SpecialEnemyAOrigin);
+        }
+        else
+        {
+            SpecialEnemyPool.Remove(instance);
+        }
+
+        instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
+        instance.Initialize(FirstAttackTarget);
+        instance.OnDead += SpecialEnemyInstance_Ondead;
+        instance.gameObject.SetActive(true);
+
+        SpecialEnemyInstances.Add(instance);
+    }
+
     private void Spawn(in int index)
     {
         var instance = GetObjectFormPool(index);
@@ -86,6 +111,16 @@ public class TestEnemySpawner_New : MonoBehaviour
         instance.gameObject.SetActive(true);
 
         Instances.Add(instance);
+    }
+
+    private void SpecialEnemyInstance_Ondead(TestEntity entity)
+    {
+        var instance = entity as SpecialEnemyTypeA;
+        SpecialEnemyInstances.Remove(instance);
+
+        instance.OnDead -= SpecialEnemyInstance_Ondead;
+
+        AddToPool(instance);
     }
 
     private void Instance_OnDead(TestEntity entity)
@@ -100,6 +135,10 @@ public class TestEnemySpawner_New : MonoBehaviour
         AddToPool(instance);
     }
 
+    private void AddToPool(SpecialEnemyTypeA enemy)
+    {
+        SpecialEnemyPool.Add(enemy);
+    }
     private void AddToPool(TestEnemy enemy)
     {
         if (!Pool.TryGetValue((int)enemy.MyEnemyType, out var list))
@@ -112,6 +151,9 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     private TestEnemy GetObjectFormPool(int index)
     {
+        if (index == 1)
+            return null;
+
         if (!Pool.TryGetValue(index, out var list))
         {
             list = new List<TestEnemy>();
