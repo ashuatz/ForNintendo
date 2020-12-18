@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class AlwaysIdentity : MonoBehaviour
 {
-    void Update() => transform.rotation = Quaternion.identity;
+    [SerializeField]
+    private Vector3 OverrideEuler = Vector3.zero;
+
+    void Update() => transform.rotation = Quaternion.Euler(OverrideEuler);
 }

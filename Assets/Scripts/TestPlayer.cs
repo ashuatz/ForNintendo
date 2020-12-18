@@ -56,27 +56,24 @@ public class TestPlayer : TestEntity
 
     private NavMeshPath path;
 
+    private CoroutineWrapper attackDelayWrapper;
     private CoroutineWrapper markerRoutine;
-    private float time = 0;
-
 
     private void Start()
     {
         path = new NavMeshPath();
+
+        probeAnimator.SetFloat("AttackSpeed", 12f / (30 * AttackDelay));
 
         OnclickShot.OnDataChanged += OnclickShot_OnDataChanged;
 
         HP.CurrentData = DefaultHP;
         animator.speed = 0.85f;
         probeAnimator.speed = 0.85f;
+
+        attackDelayWrapper = CoroutineWrapper.Generate(this);
         markerRoutine = CoroutineWrapper.Generate(this);
         probeRotationWrapper = CoroutineWrapper.Generate(this);
-
-        //GetComponent<NavMeshAgent>().SetDestination(Target.position);
-        time = Time.time;
-
-
-
     }
 
     private void OnclickShot_OnDataChanged(bool isShot)
@@ -92,7 +89,7 @@ public class TestPlayer : TestEntity
         }
         else
         {
-            probeRotationWrapper.StartSingleton(resetRotation(0.9f, 0.2f));
+            probeRotationWrapper.StartSingleton(resetRotation((22f / 30 + AttackDelay), 0.2f));
             //ProbeRoot.localRotation = Quaternion.Euler(0, 90, 0);
 
             IEnumerator resetRotation(float firstDelay, float runtime)
@@ -231,6 +228,7 @@ public class TestPlayer : TestEntity
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
                         .Where(entity => entity != null && entity.Type == EntityType.Enemy).ToList();
+                    
 
                     if (entities != null && entities.Count > 0)
                     {
@@ -241,7 +239,14 @@ public class TestPlayer : TestEntity
                         info.Destination = target;
                         info.hitDir = dir.ToVector3FromXZ();
 
-                        target.TakeDamage(info);
+                        if (ClickTime == Time.time)
+                        {
+                            attackDelayWrapper.Start(SimpleDelay(0.733f, target, info));
+                        }
+                        else
+                        {
+                            target.TakeDamage(info);
+                        }
                     }
 
                     OnShot?.Invoke();
@@ -262,6 +267,16 @@ public class TestPlayer : TestEntity
         {
             yield return new WaitForSeconds(0.5f);
             Marker.SetActive(false);
+        }
+
+        //local Function
+        IEnumerator SimpleDelay(float delay, TestEntity target, HitInfo info)
+        {
+            yield return YieldInstructionCache.WaitForSeconds(delay);
+            probeAnimator.SetTrigger("Attack_Trigger");
+
+            yield return YieldInstructionCache.WaitForSeconds(AttackDelay);
+            target.TakeDamage(info);
         }
     }
 

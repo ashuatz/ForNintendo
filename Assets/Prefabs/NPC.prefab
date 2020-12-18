@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6373d3a092ab5154b87fdb82c6c5f298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OverrideEuler: {x: 45, y: 0, z: 0}
 --- !u!114 &2477611350637785094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6373d3a092ab5154b87fdb82c6c5f298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OverrideEuler: {x: 0, y: 0, z: 0}
 --- !u!1 &7341991643715843074
 GameObject:
   m_ObjectHideFlags: 0
