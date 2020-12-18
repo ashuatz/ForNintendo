@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 928877567811608362}
   - component: {fileID: 9150087191336909435}
   m_Layer: 0
-  m_Name: Ani_Melee_Turret
+  m_Name: Model_Melee_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 553900514900510096}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec5e6e7c135aee149a152400b8eb02f6, type: 2}
+  m_Controller: {fileID: 22100000, guid: baa7c23bed5fc9c4284ffa8e472c67d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

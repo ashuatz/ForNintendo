@@ -6,7 +6,6 @@ using Util;
 
 
 
-
 public class TestStructure : TestEntity
 {
 
@@ -28,6 +27,9 @@ public class TestStructure : TestEntity
     private StructureData.Structure CurrentData;
 
     private List<TestEntity> Targets = new List<TestEntity>();
+
+    [SerializeField]
+    Animator _animator;
 
     private void Awake()
     {
@@ -76,7 +78,10 @@ public class TestStructure : TestEntity
                 info.Destination = target;
                 info.hitDir = dir.ToVector3FromXZ();
 
+                _animator.transform.GetChild(1).rotation = Quaternion.LookRotation(dir.ToVector3FromXZ()) * Quaternion.Euler(-90,0,0);
+
                 target.TakeDamage(info);
+                _animator.SetTrigger("Atk");
                 target.OnDead += OnTargetDead;
 
                 void OnTargetDead(TestEntity t)
