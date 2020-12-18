@@ -26,5 +26,5 @@ MonoBehaviour:
   - type: 2
     defaultHP: 50
     attackRange: 6
-    attackDamage: 8
-    attackPerSecond: 3
+    attackDamage: 25
+    attackPerSecond: 1
