@@ -1020,17 +1020,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceData:
-  - _haveTower: 2
-    _maxHaveTower: 5
-    _refillCool: 20
+  - _haveTower: 1
+    _maxHaveTower: 3
+    _refillCool: 30
     _nowCool: 0
   - _haveTower: 1
-    _maxHaveTower: 5
+    _maxHaveTower: 3
     _refillCool: 15
     _nowCool: 0
   - _haveTower: 1
-    _maxHaveTower: 5
-    _refillCool: 10
+    _maxHaveTower: 3
+    _refillCool: 15
     _nowCool: 0
   _IsPlaying: 1
 --- !u!4 &790083815
