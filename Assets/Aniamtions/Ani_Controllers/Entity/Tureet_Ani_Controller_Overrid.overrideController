@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tureet_Ani_Controller_Overrid
+  m_Controller: {fileID: 9100000, guid: d368904eaf7efb44e9f8152b9d7ce91c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 2055dacc0c6c88a4cb4b7950af429602, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 980ff829719d5844b84c46ef925dbb12, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8b03b3b24d6ea234f9ea7f76df1dc521, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9d5719505eb822642bc9649f07c43fd5, type: 2}
