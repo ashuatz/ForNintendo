@@ -25,16 +25,26 @@ public class HPBarUI : MonoBehaviour
     {
         entity.HP.OnDataChanged += HP_OnDataChanged;
 
+        HP_OnDataChanged(entity.HP.CurrentData);
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
     }
 
     private void HP_OnDataChanged(float currentHP)
     {
+        if (currentHP <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+
         var count = Mathf.CeilToInt(currentHP / HPPerCell);
 
         foreach (var phase in Gauge)
         {
-            var isActive = false;
             foreach (var cell in phase.Cells)
             {
                 cell.SetActive(count > 0);
