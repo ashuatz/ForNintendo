@@ -1020,13 +1020,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceData:
-  - _haveTower: 1
+  - _haveTower: 0
     _maxHaveTower: 3
-    _refillCool: 30
+    _refillCool: 25
     _nowCool: 0
   - _haveTower: 1
     _maxHaveTower: 3
-    _refillCool: 15
+    _refillCool: 17
     _nowCool: 0
   - _haveTower: 1
     _maxHaveTower: 3
