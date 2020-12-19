@@ -121,6 +121,9 @@ public class TestEnemySpawner_New : MonoBehaviour
         var instance = entity as SpecialEnemyTypeA;
         SpecialEnemyInstances.Remove(instance);
 
+        _killEnemy++;
+        SpawnerParent._SpawnerParent.CheckSectorClear();
+
         instance.OnDead -= SpecialEnemyInstance_Ondead;
 
         AddToPool(instance);
