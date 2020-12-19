@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TestHitEffect : MonoBehaviour
 {
-    [SerializeField]
+    [Serializable]
     public class HitEffectData
     {
         public TestEntity.EntityType AttackerEntityType;
@@ -19,9 +20,6 @@ public class TestHitEffect : MonoBehaviour
 
     [SerializeField]
     private List<HitEffectData> Effects;
-
-    [SerializeField]
-    private ParticleSystem HitEffect;
     
     void Start()
     {
@@ -87,9 +85,6 @@ public class TestHitEffect : MonoBehaviour
                 }
             }
         }
-
-        HitEffect.transform.LookAt(transform.position - obj.hitDir);
-        HitEffect.Play();
     }
 
     private void OnDestroy()
