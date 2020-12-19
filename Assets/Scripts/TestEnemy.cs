@@ -90,6 +90,18 @@ public class TestEnemy : TestEntity
 
         InitWrapper.StartSingleton(AgentInit());
 
+        switch (MyEnemyType)
+        {
+            case EnemyType.Normal:
+                Animator.Play("Zombi_Run");
+                break;
+
+            case EnemyType.SpecialB:
+                Animator.Play("Zombi_Crawling");
+                break;
+
+        }
+
         IEnumerator AgentInit()
         {
             yield return new WaitUntil(() => Agent.isOnNavMesh);
