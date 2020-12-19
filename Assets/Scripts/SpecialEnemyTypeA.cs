@@ -124,6 +124,8 @@ public class SpecialEnemyTypeA : TestEntity
         HP.CurrentData = currentData.DefaultHP;
         AttackTarget.CurrentData = target;
         Agent.isStopped = false;
+
+        Animator.Play("Zombi_Rush_Run");
     }
 
     private void OnEnable()

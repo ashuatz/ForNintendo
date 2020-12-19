@@ -14,12 +14,14 @@ public class CollisionEventRiser : MonoBehaviour
     {
         OnTriggerEnterEvent?.Invoke(other);
     }
-    private void OnTriggerStay(Collider other)
-    {
-        OnTriggerStayEvent?.Invoke(other);
-    }
+
     private void OnTriggerExit(Collider other)
     {
         OnTriggerExitEvent?.Invoke(other);
+    }
+
+    protected void CallOnTriggerStay(Collider other)
+    {
+        OnTriggerStayEvent?.Invoke(other);
     }
 }
