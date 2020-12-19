@@ -8,6 +8,8 @@ public class TimerUI : MonoBehaviour
 {
     private static event Action<bool> OnPause;
 
+    public static event Action<float> OnEnd;
+
     [SerializeField]
     private Text TimerText;
 
@@ -33,6 +35,11 @@ public class TimerUI : MonoBehaviour
     private void TimerUI_OnPause(bool obj)
     {
         isPause = obj;
+
+        if (obj)
+        {
+            OnEnd?.Invoke(currentTime);
+        }
     }
 
     private void Update()

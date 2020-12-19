@@ -79,9 +79,9 @@ public class TestEnemySpawner : MonoBehaviour
         }
 
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
+        instance.gameObject.SetActive(true);
         instance.Initialize(FirstAttackTarget);
         instance.OnDead += SpecialEnemyInstance_Ondead;
-        instance.gameObject.SetActive(true);
 
         SpecialEnemyInstances.Add(instance);
     }
@@ -90,9 +90,9 @@ public class TestEnemySpawner : MonoBehaviour
     {
         var instance = GetObjectFormPool(index);
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
+        instance.gameObject.SetActive(true);
         instance.Initialize(FirstAttackTarget);
         instance.OnDead += Instance_OnDead;
-        instance.gameObject.SetActive(true);
 
         Instances.Add(instance);
     }
