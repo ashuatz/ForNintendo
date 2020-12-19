@@ -86,6 +86,7 @@ public class TestEnemy : TestEntity
         FirstTarget = target;
         HP.CurrentData = currentData.DefaultHP;
         AttackTarget.CurrentData = target;
+        Targets.Clear();
 
         InitWrapper.StartSingleton(AgentInit());
 

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Messages:
   - time: 5
-    desc: "\uBAA9\uC801\uC9C0\uC5D0 \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4."
+    desc: "\uCCAB \uBC88\uC9F8 \uBAA9\uC801\uC9C0\uC5D0 \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4."
     duration: 4
   - time: 5
-    desc: "\uBC31\uC2E0\uC744 \uD68C\uC218\uD588\uC2B5\uB2C8\uB2E4."
+    desc: "\uC774\uACF3\uC5D0\uB294 \uBC31\uC2E0\uC774 \uC5C6\uB294 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4."
     duration: 4
   - time: 5
-    desc: "\uC774\uC0C1 \uBCF5\uADC0\uD558\uB3C4\uB85D \uD558\uACA0\uC2B5\uB2C8\uB2E4."
+    desc: "\uAC10\uC5FC\uC790\uAC00 \uBAB0\uB824\uC635\uB2C8\uB2E4."
     duration: 4

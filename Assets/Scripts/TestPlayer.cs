@@ -164,14 +164,50 @@ public class TestPlayer : TestEntity
             Agent.isStopped = true;
         }
 
+        bool isOverrideKeyForTest = false;
+        Vector3 overrideMoveForTest = Vector3.zero;
+        //if(Input.GetKey(KeyCode.W))
+        //{
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.up.ToVector3FromXZ() * 3;
+
+        //}
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.left.ToVector3FromXZ() * 3;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.right.ToVector3FromXZ() * 3;
+
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    isOverrideKey = true;
+
+        //    overrideMove = Vector2.down.ToVector3FromXZ() * 3;
+        //}
+
+
         //우클릭 이동
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || isOverrideKeyForTest)
         {
             //InputManager.Instance.MouseWorldPosition.OnDataChangedOnce += OnDataChanged;
-            var position = InputManager.Instance.MouseWorldPosition.CurrentData;
+            Vector3 position;
+
+            if (isOverrideKeyForTest)
+            {
+                position = transform.position.ToXZ().ToVector3FromXZ() + overrideMoveForTest;
+            }
+            else
+            {
+                position = InputManager.Instance.MouseWorldPosition.CurrentData;
+            }
 
 
-            if(Agent.CalculatePath(position, path))
+            if (Agent.CalculatePath(position, path))
             {
                 Agent.SetPath(path);
                 Agent.isStopped = false;

@@ -40,9 +40,12 @@ public class TestEnemySpawner : MonoBehaviour
 
     IEnumerator StartSpawn()
     {
+        yield return null;
+        yield return null;
+
         while (enabled)
         {
-            if (Instances.Count < MaxSpawnCount)
+            if (Instances.Count + SpecialEnemyInstances.Count < MaxSpawnCount)
             {
                 var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
                 if (tester > SpawnRate.x + SpawnRate.y)
@@ -76,9 +79,9 @@ public class TestEnemySpawner : MonoBehaviour
         }
 
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
+        instance.gameObject.SetActive(true);
         instance.Initialize(FirstAttackTarget);
         instance.OnDead += SpecialEnemyInstance_Ondead;
-        instance.gameObject.SetActive(true);
 
         SpecialEnemyInstances.Add(instance);
     }
@@ -87,9 +90,9 @@ public class TestEnemySpawner : MonoBehaviour
     {
         var instance = GetObjectFormPool(index);
         instance.transform.position = transform.position + SpawnRangeXZ.GetRandom().ToVector3FromXZ().Round(1);
+        instance.gameObject.SetActive(true);
         instance.Initialize(FirstAttackTarget);
         instance.OnDead += Instance_OnDead;
-        instance.gameObject.SetActive(true);
 
         Instances.Add(instance);
     }

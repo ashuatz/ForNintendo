@@ -53,6 +53,9 @@ public class TestEnemySpawner_New : MonoBehaviour
 
     IEnumerator StartSpawn()
     {
+        yield return null;
+        yield return null;
+
         while (_waveData.Length > _nowWave)
         {
             _nowSpawn = 0;
@@ -68,7 +71,7 @@ public class TestEnemySpawner_New : MonoBehaviour
                 }
                 else if (tester > SpawnRate.x)
                 {
-                    Spawn(1);
+                    SpawnSpecialEnemyA();
                 }
                 else
                 {
