@@ -13,7 +13,11 @@ public class TestHitEffect : MonoBehaviour
         public EnemyType AttackerEnemyType;
 
         public ParticleSystem HitEffect;
+        public AudioClip clip;
+        public float clipVolume;
     }
+    [SerializeField]
+    private AudioSource source;
 
     [SerializeField]
     private TestEntity entitiy;
@@ -41,6 +45,10 @@ public class TestHitEffect : MonoBehaviour
 
                     target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
                     target.HitEffect.Play();
+
+                    source.clip = target.clip;
+                    source.volume = target.clipVolume;
+                    source.Play();
                     break;
                 }
 
@@ -52,6 +60,10 @@ public class TestHitEffect : MonoBehaviour
 
                     target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
                     target.HitEffect.Play();
+
+                    source.clip = target.clip;
+                    source.volume = target.clipVolume;
+                    source.Play();
                     break;
                 }
             }
@@ -70,6 +82,10 @@ public class TestHitEffect : MonoBehaviour
 
                     target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
                     target.HitEffect.Play();
+
+                    source.clip = target.clip;
+                    source.volume = target.clipVolume;
+                    source.Play();
                     break;
                 }
 
@@ -81,6 +97,10 @@ public class TestHitEffect : MonoBehaviour
 
                     target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
                     target.HitEffect.Play();
+
+                    source.clip = target.clip;
+                    source.volume = target.clipVolume;
+                    source.Play();
                     break;
                 }
             }
