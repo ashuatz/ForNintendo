@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Messages:
   - time: 5
-    desc: "\uC808\uB300 \uB118\uC5B4\uC9C0\uC9C0 \uC54A\uB294 \uB85C\uBD07"
+    desc: "\uC544..."
     duration: 4
   - time: 3
-    desc: "\uC544\uBB34\uB9AC \uBC1C\uB85C \uAE4C\uB3C4"
+    desc: "\uC544..."
     duration: 2
   - time: 3
-    desc: "\uBAB8\uC73C\uB85C \uBC00\uC5B4\uB3C4"
+    desc: "\uC544..."
     duration: 2
   - time: 5
-    desc: "\uAD74\uD558\uC9C0 \uC54A\uB294\uB2E4..."
+    desc: "\uC544..."
     duration: 4
