@@ -27,6 +27,8 @@ public class ProgressiveBarUI : MonoBehaviour
 
     void Start()
     {
+        DataContainer.Instance.ProgressBarUI.CurrentData = this;
+
         ClearIndex = -1;
 
         sectors = SpawnerParent._Sectors;
@@ -86,6 +88,6 @@ public class ProgressiveBarUI : MonoBehaviour
             Vector2.Distance(DataContainer.Instance.Player.CurrentData.transform.position.ToXZ(), next.transform.position.ToXZ()) /
             Vector2.Distance(prev.transform.position.ToXZ(), next.transform.position.ToXZ());
 
-        targetProgressBar.fillAmount = amount;
+        targetProgressBar.fillAmount = 1 - amount;
     }
 }

@@ -65,6 +65,7 @@ public class TestPlayer : TestEntity
     private void Start()
     {
         path = new NavMeshPath();
+        DataContainer.Instance.Player.CurrentData = this;
 
         probeAnimator.SetFloat("AttackSpeed", 12f / (30 * AttackDelay));
 
