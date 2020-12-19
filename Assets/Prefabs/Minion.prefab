@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 2681172083098840702, guid: 17ab8dab29512e04bb561397bd281817, type: 3}
   - {fileID: 5470720604399463783, guid: 4f2922eb9c260924abefc80190b95e24, type: 3}
   - {fileID: 7141833491352047627, guid: cf41876c506024b40b3557fa1e3e15e1, type: 3}
+  animator: {fileID: 322486953532088106}
 --- !u!1001 &1273519416805138411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,6 +480,12 @@ PrefabInstance:
 --- !u!4 &8785307896512798608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7514218413329203323, guid: 85d0e56f7ee876c49bc1c49778189719,
+    type: 3}
+  m_PrefabInstance: {fileID: 1273519416805138411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &322486953532088106 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1573382471016366273, guid: 85d0e56f7ee876c49bc1c49778189719,
     type: 3}
   m_PrefabInstance: {fileID: 1273519416805138411}
   m_PrefabAsset: {fileID: 0}
