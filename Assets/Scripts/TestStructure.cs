@@ -37,9 +37,11 @@ public class TestStructure : TestEntity
 
     private CoroutineWrapper RotationWrapper;
 
+    private List<TestEntity> removeList = new List<TestEntity>();
+
     [SerializeField]
     Animator _animator;
-    
+
 
     private void Awake()
     {
@@ -54,7 +56,14 @@ public class TestStructure : TestEntity
         Detector.radius = CurrentData.AttackRange;
         Detector.isTrigger = true;
 
+        TestEnemy.OnEnemyDead += TestEnemy_OnEnemyDead;
+
         _animator.SetFloat("AttackSpeed", CurrentData.AttackPerSecond);
+    }
+
+    private void TestEnemy_OnEnemyDead(TestEnemy obj)
+    {
+        removeList.Add(obj);
     }
 
     protected override void Dead()
@@ -66,7 +75,6 @@ public class TestStructure : TestEntity
 
     private IEnumerator Start()
     {
-        List<TestEntity> removeList = new List<TestEntity>();
 
         while (enabled)
         {
@@ -78,6 +86,11 @@ public class TestStructure : TestEntity
                     continue;
                 }
                 if (target.HP.CurrentData <= 0)
+                {
+                    removeList.Add(target);
+                    continue;
+                }
+                if (Vector2.Distance(target.transform.position.ToXZ(), this.transform.position.ToXZ()) > CurrentData.AttackRange)
                 {
                     removeList.Add(target);
                     continue;
@@ -163,6 +176,8 @@ public class TestStructure : TestEntity
 
     private void OnDestroy()
     {
+        TestEnemy.OnEnemyDead -= TestEnemy_OnEnemyDead;
+
         var riser = Detector.GetComponent<CollisionEventRiser>();
         riser.OnTriggerEnterEvent -= OnTriggerEnterListener;
         riser.OnTriggerExitEvent -= OnTriggerExitListener;

@@ -62,6 +62,9 @@ public class TestEnemy : TestEntity
 
     public NotifierClass<Transform> AttackTarget = new NotifierClass<Transform>();
 
+
+    public static event System.Action<TestEnemy> OnEnemyDead;
+
     private void Awake()
     {
 
@@ -121,6 +124,8 @@ public class TestEnemy : TestEntity
         Agent.isStopped = true;
 
         Animator.SetTrigger("Die");
+
+        OnEnemyDead?.Invoke(this);
 
         StartCoroutine(DeleayRelease());
 
