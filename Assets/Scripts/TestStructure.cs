@@ -53,6 +53,8 @@ public class TestStructure : TestEntity
 
         Detector.radius = CurrentData.AttackRange;
         Detector.isTrigger = true;
+
+        _animator.SetFloat("AttackSpeed", CurrentData.AttackPerSecond);
     }
 
     protected override void Dead()
@@ -91,7 +93,7 @@ public class TestStructure : TestEntity
 
                 var targetQuaternion = Quaternion.LookRotation(dir.ToVector3FromXZ()) * Quaternion.Euler(-90, 0, 0);
                 var runtime = myType == StructureType.MeleeTurret ? 8f / 24 : 8f / 30;
-                RotationWrapper.StartSingleton(RotateToTarget(targetQuaternion, runtime)).SetOnComplete(() =>
+                RotationWrapper.StartSingleton(RotateToTarget(targetQuaternion, runtime / CurrentData.AttackPerSecond)).SetOnComplete(() =>
                 {
                     MuzzleEffect.Play();
                     target.TakeDamage(info);

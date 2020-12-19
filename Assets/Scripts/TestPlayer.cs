@@ -145,10 +145,10 @@ public class TestPlayer : TestEntity
             //build Test
             BuildIndex.CurrentData = 1;
         }
-        //if (Input.GetKeyDown(KeyCode.W) && _BuildResourceManager.IsHaveTower(1))
-        //{
-        //    BuildIndex.CurrentData = 2;
-        //}
+        if (Input.GetKeyDown(KeyCode.W) && _BuildResourceManager.IsHaveTower(1))
+        {
+            BuildIndex.CurrentData = 2;
+        }
         if (Input.GetKeyDown(KeyCode.E) && _BuildResourceManager.IsHaveTower(2))
         {
             BuildIndex.CurrentData = 3;
@@ -159,47 +159,47 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = -1;
         }
 
-        //if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Agent.isStopped = true;
+        }
+
+        bool isOverrideKeyForTest = false;
+        Vector3 overrideMoveForTest = Vector3.zero;
+        //if(Input.GetKey(KeyCode.W))
         //{
-        //    Agent.isStopped = true;
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.up.ToVector3FromXZ() * 3;
+
         //}
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.left.ToVector3FromXZ() * 3;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    isOverrideKey = true;
+        //    overrideMove = Vector2.right.ToVector3FromXZ() * 3;
 
-        bool isOverrideKey = false;
-        Vector3 overrideMove = Vector3.zero;
-        if(Input.GetKey(KeyCode.W))
-        {
-            isOverrideKey = true;
-            overrideMove = Vector2.up.ToVector3FromXZ() * 3;
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    isOverrideKey = true;
 
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            isOverrideKey = true;
-            overrideMove = Vector2.left.ToVector3FromXZ() * 3;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            isOverrideKey = true;
-            overrideMove = Vector2.right.ToVector3FromXZ() * 3;
-
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            isOverrideKey = true;
-
-            overrideMove = Vector2.down.ToVector3FromXZ() * 3;
-        }
+        //    overrideMove = Vector2.down.ToVector3FromXZ() * 3;
+        //}
 
 
         //우클릭 이동
-        if (Input.GetMouseButton(1) || isOverrideKey)
+        if (Input.GetMouseButton(1) || isOverrideKeyForTest)
         {
             //InputManager.Instance.MouseWorldPosition.OnDataChangedOnce += OnDataChanged;
             Vector3 position;
 
-            if (isOverrideKey)
+            if (isOverrideKeyForTest)
             {
-                position = transform.position.ToXZ().ToVector3FromXZ() + overrideMove;
+                position = transform.position.ToXZ().ToVector3FromXZ() + overrideMoveForTest;
             }
             else
             {
