@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyType: 1
-  DefaultHP: 500
+  DefaultHP: 210
   DefaultSpeed: 3
   PlayerProbe: {fileID: 0}
   BuildObjects:
@@ -504,6 +504,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1590905565767975362, guid: fc379de33a35f5b489c63feb3558a587,
+        type: 3}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 991391542464373755}
     - target: {fileID: 3369852824217094520, guid: fc379de33a35f5b489c63feb3558a587,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1011,6 +1016,16 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198327756332910336, guid: c372e10ac43587343883acddfc558b95,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.019607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 198327756332910336, guid: c372e10ac43587343883acddfc558b95,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 0.019607844
       objectReference: {fileID: 0}
     - target: {fileID: 198327756332910336, guid: c372e10ac43587343883acddfc558b95,
         type: 3}

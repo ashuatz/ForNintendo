@@ -104,6 +104,9 @@ public class HPBarUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        entity.HP.OnDataChanged -= HP_OnDataChanged;
+        if (entity != null)
+        {
+            entity.HP.OnDataChanged -= HP_OnDataChanged;
+        }
     }
 }
