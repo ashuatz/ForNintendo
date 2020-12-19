@@ -25,6 +25,9 @@ public class TestMinion : TestEntity
     [SerializeField]
     private List<GameObject> BuildObjects;
 
+    [SerializeField]
+    private Animator animator;
+
 
     public bool CC { get; private set; }
     public bool isBuilding { get; private set; }
@@ -38,6 +41,8 @@ public class TestMinion : TestEntity
     private void Awake()
     {
         HP.CurrentData = DefaultHP;
+
+        animator.speed = Random.Range(0.95f, 1.05f);
 
         BuildWrapper = new CoroutineWrapper(this);
         MoveTargetNotifier = new NotifierClass<Transform>();
