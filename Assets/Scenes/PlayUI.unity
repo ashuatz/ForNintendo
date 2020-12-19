@@ -1206,15 +1206,15 @@ MonoBehaviour:
   _resourceData:
   - _haveTower: 0
     _maxHaveTower: 3
-    _refillCool: 25
-    _nowCool: 0
-  - _haveTower: 1
-    _maxHaveTower: 3
-    _refillCool: 17
-    _nowCool: 0
-  - _haveTower: 1
-    _maxHaveTower: 3
     _refillCool: 15
+    _nowCool: 0
+  - _haveTower: 1
+    _maxHaveTower: 3
+    _refillCool: 10
+    _nowCool: 0
+  - _haveTower: 1
+    _maxHaveTower: 3
+    _refillCool: 5
     _nowCool: 0
   _IsPlaying: 1
 --- !u!4 &790083815
