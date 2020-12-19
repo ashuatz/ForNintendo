@@ -516,12 +516,22 @@ MonoBehaviour:
   - _wayPointSetPos: {x: -8, y: 3.3, z: -25.5}
     _spawners:
     - {fileID: 989343486}
+    - {fileID: 1794778915}
     - {fileID: 418075753}
+    - {fileID: 716564714}
+    - {fileID: 1940277499}
+    - {fileID: 881833575}
+    - {fileID: 743194870}
     _maxEnemy: 0
   - _wayPointSetPos: {x: 32, y: 3.3, z: -39.5}
     _spawners:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 2003466705}
+    - {fileID: 1859029314}
+    - {fileID: 537138575}
+    - {fileID: 2018506855}
+    - {fileID: 291183132}
+    - {fileID: 1276467673}
+    - {fileID: 2080529229}
     _maxEnemy: 0
   - _wayPointSetPos: {x: -43, y: 3.3, z: -51.5}
     _spawners:
@@ -2481,7 +2491,7 @@ MonoBehaviour:
   targetEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 989343486}
+      - m_Target: {fileID: 2003466705}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -2492,7 +2502,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 418075753}
+      - m_Target: {fileID: 1859029314}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -2503,7 +2513,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 716564714}
+      - m_Target: {fileID: 537138575}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -2514,7 +2524,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1940277499}
+      - m_Target: {fileID: 2018506855}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -2525,7 +2535,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 881833575}
+      - m_Target: {fileID: 291183132}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1276467673}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2080529229}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -5997,7 +6029,7 @@ MonoBehaviour:
   targetEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 989343486}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -6008,7 +6040,62 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1794778915}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 418075753}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 716564714}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1940277499}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 881833575}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 743194870}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -7420,7 +7507,7 @@ GameObject:
   - component: {fileID: 2080529228}
   - component: {fileID: 2080529229}
   m_Layer: 0
-  m_Name: Sec2RightDownShort
+  m_Name: Sec3RightDownShort
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
