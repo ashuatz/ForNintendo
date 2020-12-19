@@ -38,4 +38,7 @@ public enum StructureType
     Barricade,
     MeleeTurret,
     RangeTurret,
+
+
+    NotStructure,
 }

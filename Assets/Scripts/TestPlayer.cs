@@ -145,10 +145,10 @@ public class TestPlayer : TestEntity
             //build Test
             BuildIndex.CurrentData = 1;
         }
-        if (Input.GetKeyDown(KeyCode.W) && _BuildResourceManager.IsHaveTower(1))
-        {
-            BuildIndex.CurrentData = 2;
-        }
+        //if (Input.GetKeyDown(KeyCode.W) && _BuildResourceManager.IsHaveTower(1))
+        //{
+        //    BuildIndex.CurrentData = 2;
+        //}
         if (Input.GetKeyDown(KeyCode.E) && _BuildResourceManager.IsHaveTower(2))
         {
             BuildIndex.CurrentData = 3;
@@ -159,19 +159,57 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = -1;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    Agent.isStopped = true;
+        //}
+
+        bool isOverrideKey = false;
+        Vector3 overrideMove = Vector3.zero;
+        if(Input.GetKey(KeyCode.W))
         {
-            Agent.isStopped = true;
+            isOverrideKey = true;
+            overrideMove = Vector2.up.ToVector3FromXZ() * 3;
+
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            isOverrideKey = true;
+            overrideMove = Vector2.left.ToVector3FromXZ() * 3;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            isOverrideKey = true;
+            overrideMove = Vector2.right.ToVector3FromXZ() * 3;
+
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            isOverrideKey = true;
+
+            overrideMove = Vector2.down.ToVector3FromXZ() * 3;
         }
 
+
         //우클릭 이동
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || isOverrideKey)
         {
             //InputManager.Instance.MouseWorldPosition.OnDataChangedOnce += OnDataChanged;
-            var position = InputManager.Instance.MouseWorldPosition.CurrentData;
+            Vector3 position;
+
+            if (isOverrideKey)
+            {
+                position = transform.position.ToXZ().ToVector3FromXZ() + overrideMove;
+            }
+            else
+            {
+                position = InputManager.Instance.MouseWorldPosition.CurrentData;
+            }
+            Debug.Log("Position : " + position);
 
 
-            if(Agent.CalculatePath(position, path))
+
+            if (Agent.CalculatePath(position, path))
             {
                 Agent.SetPath(path);
                 Agent.isStopped = false;

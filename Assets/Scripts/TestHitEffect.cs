@@ -5,7 +5,20 @@ using UnityEngine;
 public class TestHitEffect : MonoBehaviour
 {
     [SerializeField]
+    public class HitEffectData
+    {
+        public TestEntity.EntityType AttackerEntityType;
+        public StructureType AttackerStructureType;
+        public EnemyType AttackerEnemyType;
+
+        public ParticleSystem HitEffect;
+    }
+
+    [SerializeField]
     private TestEntity entitiy;
+
+    [SerializeField]
+    private List<HitEffectData> Effects;
 
     [SerializeField]
     private ParticleSystem HitEffect;
@@ -17,6 +30,64 @@ public class TestHitEffect : MonoBehaviour
 
     private void Entitiy_OnHit(HitInfo obj)
     {
+        //피격자가 적
+        if(obj.Destination.Type == TestEntity.EntityType.Enemy)
+        {
+            switch (obj.Origin)
+            {
+                case TestPlayer player:
+                {
+                    var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Player && data.AttackerStructureType == StructureType.NotStructure);
+                    if (target == null)
+                        return;
+
+                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.Play();
+                    break;
+                }
+
+                case TestStructure structure:
+                {
+                    var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Player && data.AttackerStructureType == structure.MyStructureType);
+                    if (target == null)
+                        return;
+
+                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.Play();
+                    break;
+                }
+            }
+        }
+
+        //피격자가 아군
+        else if (obj.Destination.Type == TestEntity.EntityType.Player)
+        {
+            switch (obj.Origin)
+            {
+                case TestEnemy enemy:
+                {
+                    var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Enemy && data.AttackerEnemyType == enemy.MyEnemyType);
+                    if (target == null)
+                        return;
+
+                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.Play();
+                    break;
+                }
+
+                case TestPlayer player:
+                {
+                    var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Player && data.AttackerStructureType == StructureType.NotStructure);
+                    if (target == null)
+                        return;
+
+                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.Play();
+                    break;
+                }
+            }
+        }
+
         HitEffect.transform.LookAt(transform.position - obj.hitDir);
         HitEffect.Play();
     }

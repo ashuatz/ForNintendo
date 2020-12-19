@@ -11,12 +11,19 @@ public class TestStructure : TestEntity
 
     [SerializeField]
     private StructureType myType;
+    public StructureType MyStructureType { get => myType; }
 
     [SerializeField]
     private SphereCollider Detector;
 
     [SerializeField]
     private Collider SpaceCollider;
+
+    [SerializeField]
+    private ParticleSystem MuzzleEffect;
+    [SerializeField]
+    private AudioSource AttackSound;
+
     public Collider StructureCollider { get => SpaceCollider; }
 
     [SerializeField]
@@ -86,7 +93,9 @@ public class TestStructure : TestEntity
                 var runtime = myType == StructureType.MeleeTurret ? 8f / 24 : 8f / 30;
                 RotationWrapper.StartSingleton(RotateToTarget(targetQuaternion, runtime)).SetOnComplete(() =>
                 {
+                    MuzzleEffect.Play();
                     target.TakeDamage(info);
+                    AttackSound.Play();
                 });
 
                 _animator.SetTrigger("Atk");
