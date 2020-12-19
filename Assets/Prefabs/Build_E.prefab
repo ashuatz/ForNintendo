@@ -622,8 +622,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
       propertyPath: SizeModule.curve.scalar
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: ClampVelocityModule.dampen
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045031419300616190, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1045395169187660034, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
@@ -658,12 +683,12 @@ PrefabInstance:
     - target: {fileID: 1045395169187660034, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 16
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1045395169187660034, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 6
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
@@ -672,8 +697,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
       propertyPath: VelocityModule.x.scalar
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
         type: 3}
@@ -754,6 +784,21 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[1].countCurve.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080652366965448068, guid: 6b90812028825e644a83d994a9e85445,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[2].countCurve.scalar
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b90812028825e644a83d994a9e85445, type: 3}
@@ -1155,6 +1200,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506819821375151905, guid: 45ffb65d6820f274292ac9c8e00b27d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.0000012794438
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506819821375151905, guid: 45ffb65d6820f274292ac9c8e00b27d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.000000055861783
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506819821375151905, guid: 45ffb65d6820f274292ac9c8e00b27d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -2.500001
       objectReference: {fileID: 0}
     - target: {fileID: 5135971253142937297, guid: 45ffb65d6820f274292ac9c8e00b27d6,
         type: 3}
