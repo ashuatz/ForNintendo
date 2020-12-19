@@ -21,10 +21,10 @@ MonoBehaviour:
   - myType: 1
     defaultHP: 140
     attackRange: 1
-    attackDamage: 30
+    attackDamage: 21
     attackPerSecond: 1
   - myType: 2
     defaultHP: 70
     attackRange: 1
-    attackDamage: 15
+    attackDamage: 14
     attackPerSecond: 1
