@@ -40,9 +40,12 @@ public class TestEnemySpawner : MonoBehaviour
 
     IEnumerator StartSpawn()
     {
+        yield return null;
+        yield return null;
+
         while (enabled)
         {
-            if (Instances.Count < MaxSpawnCount)
+            if (Instances.Count + SpecialEnemyInstances.Count < MaxSpawnCount)
             {
                 var tester = UnityEngine.Random.Range(0, SpawnRate.x + SpawnRate.y + SpawnRate.z);
                 if (tester > SpawnRate.x + SpawnRate.y)
