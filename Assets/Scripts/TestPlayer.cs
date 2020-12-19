@@ -205,8 +205,6 @@ public class TestPlayer : TestEntity
             {
                 position = InputManager.Instance.MouseWorldPosition.CurrentData;
             }
-            Debug.Log("Position : " + position);
-
 
 
             if (Agent.CalculatePath(position, path))
