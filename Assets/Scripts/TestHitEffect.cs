@@ -45,7 +45,7 @@ public class TestHitEffect : MonoBehaviour
                     if (target == null)
                         return;
 
-                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.transform.rotation = (Quaternion.LookRotation(-obj.hitDir) * target.HitEffect.transform.parent.localRotation).normalized;
                     target.HitEffect.Play();
 
                     source.clip = target.clip;
