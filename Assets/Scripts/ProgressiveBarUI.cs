@@ -79,8 +79,11 @@ public class ProgressiveBarUI : MonoBehaviour
 
         var targetProgressBar = MovementProgressBars[ClearIndex];
 
-        if (targetProgressBar.fillAmount == 1 || Mathf.Approximately(targetProgressBar.fillAmount, 1))
+        if (targetProgressBar.fillAmount > 0.92f)
+        {
+            targetProgressBar.fillAmount = 1f;
             return;
+        }
 
         var prev = DefenseSectors[ClearIndex];
         var next = DefenseSectors[ClearIndex + 1];
