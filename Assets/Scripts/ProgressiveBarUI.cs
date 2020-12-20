@@ -67,6 +67,7 @@ public class ProgressiveBarUI : MonoBehaviour
             {
                 ClearIndex = i;
                 ClearMarkers[ClearIndex].gameObject.SetActive(true);
+                DefenseSectors[ClearIndex].gameObject.SetActive(false);
             }
         }
     }
