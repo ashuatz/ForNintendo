@@ -5088,7 +5088,7 @@ MonoBehaviour:
   PlayerTransformForTest: {fileID: 0}
   Detector: {fileID: 917846000185554417}
   RushTime: 3
-  RushDamage: 100
+  RushDamage: 50
   Searcher: {fileID: 1587057047604573056}
   RushSpeed: 10
 --- !u!1 &6996224652914780534
