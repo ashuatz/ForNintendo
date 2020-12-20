@@ -23,8 +23,8 @@ public class StartGame : MonoBehaviour
     {
         if (other.TryGetComponent<TestPlayer>(out var player))
         {
-
             loadSceneOperation.allowSceneActivation = true;
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
         }
     }
 }
