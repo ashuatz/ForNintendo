@@ -9,7 +9,7 @@ public class EndingSpace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<TestPlayer>(out var entity) && _progressiveUI.ClearIndex == SpawnerParent._Sectors.Length - 1)
+        if (other.TryGetComponent<TestPlayer>(out var entity) && _progressiveUI.ClearIndex + 1 == SpawnerParent._Sectors.Length - 1)
         {
             TimerUI.SetEnd();
             EndingManager._EndingManager.StartCoroutine(EndingManager._EndingManager.Ending());

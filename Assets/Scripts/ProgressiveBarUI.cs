@@ -68,7 +68,7 @@ public class ProgressiveBarUI : MonoBehaviour
             DefenseProgressBars[i].fillAmount = amount;
             if (amount == 1 || Mathf.Approximately(amount, 1))
             {
-                ClearIndex = i;
+                ClearIndex = Mathf.Max(ClearIndex, i);
                 ClearMarkers[ClearIndex].gameObject.SetActive(true);
                 DefenseSectors[ClearIndex].gameObject.SetActive(false);
             }

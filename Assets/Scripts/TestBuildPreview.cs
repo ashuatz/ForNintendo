@@ -28,6 +28,7 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
 
     private List<GameObject> Pool = new List<GameObject>();
 
+
     public void AddToPool(GameObject instance)
     {
         for (int i = 0; i < 3; ++i) instance.transform.GetChild(i).gameObject.SetActive(false);
@@ -55,6 +56,9 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
     {
         base.Awake();
 
+
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+
         if (DataContainer.Instance.Player.CurrentData != null)
         {
             player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
@@ -64,7 +68,17 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
             DataContainer.Instance.Player.OnDataChangedOnce += player => player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
         }
 
+
         InputManager.Instance.MouseWorldXZ.OnDataChanged += MouseWorldXZ_OnDataChanged;
+    }
+
+    private void SceneManager_activeSceneChanged(UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
+    {
+        if (arg1.buildIndex == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+            Destroy(gameObject);
+        }
     }
 
     public bool CheckBuildAllow(int index, Vector2 position)
@@ -79,7 +93,7 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
         return allowed;
     }
 
-    public bool TryGetStructure(Vector2 position,out TestStructure instance)
+    public bool TryGetStructure(Vector2 position, out TestStructure instance)
     {
         instance = null;
 
@@ -87,7 +101,7 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
         target.transform.position = position.ToVector3FromXZ().Round(1);
         target.gameObject.SetActive(true);
 
-        if(WorldData.Instance.TryGetStructure(target,out var structure))
+        if (WorldData.Instance.TryGetStructure(target, out var structure))
         {
             instance = structure;
             return true;
