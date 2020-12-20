@@ -11,7 +11,7 @@ public class WorldData : MonoSingleton<WorldData>
      * 꺼져있는 콜라이더는 충돌처리되지않음
      * 트리거든 아니든 상관없음
      */
-    
+
     [SerializeField]
     private List<Collider> StaticColliders;
 
@@ -31,6 +31,19 @@ public class WorldData : MonoSingleton<WorldData>
     protected override void Awake()
     {
         base.Awake();
+
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+    }
+
+    private void SceneManager_activeSceneChanged(UnityEngine.SceneManagement.Scene arg0, UnityEngine.SceneManagement.Scene arg1)
+    {
+        if (arg1.buildIndex == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+
+            _instance = null;
+            Destroy(gameObject);
+        }
     }
 
     public void AddStructure(TestStructure target)
@@ -117,7 +130,7 @@ public class WorldData : MonoSingleton<WorldData>
 
         return false;
     }
-    public bool TryGetStructure(Collider tester,out TestStructure buildedStructure )
+    public bool TryGetStructure(Collider tester, out TestStructure buildedStructure)
     {
         buildedStructure = null;
         foreach (var structureCollider in StructureColliders)

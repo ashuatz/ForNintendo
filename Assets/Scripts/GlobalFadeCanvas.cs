@@ -62,4 +62,9 @@ public class GlobalFadeCanvas : MonoSingleton<GlobalFadeCanvas>
         FadeImage.color = finalColor;
 
     }
+
+    private void OnDestroy()
+    {
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+    }
 }

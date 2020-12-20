@@ -1093,7 +1093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41327791, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 582.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 41327791, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1116,7 +1116,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TargetWaypointProbe
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 761397083}
     - target: {fileID: 5208397165215981205, guid: 5c45edf3c2f28c44f9ba15c2ac9cc403,
         type: 3}
       propertyPath: m_Name
