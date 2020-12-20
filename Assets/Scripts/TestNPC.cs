@@ -29,6 +29,11 @@ public class TestNPC : TestEntity
         ProbePosition.OnDataChanged += ProbePosition_OnDataChanged;
         HP.CurrentData = DefaultHP;
     }
+    protected override void Dead()
+    {
+        base.Dead();
+        GlobalFadeCanvas.Instance.On(() => UnityEngine.SceneManagement.SceneManager.LoadScene(0));
+    }
 
     private void ProbePosition_OnDataChanged(Vector3 obj)
     {

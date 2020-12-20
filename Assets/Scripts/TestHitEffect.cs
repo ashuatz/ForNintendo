@@ -16,6 +16,8 @@ public class TestHitEffect : MonoBehaviour
         public AudioClip clip;
         public float clipVolume;
     }
+
+
     [SerializeField]
     private AudioSource source;
 
@@ -43,7 +45,7 @@ public class TestHitEffect : MonoBehaviour
                     if (target == null)
                         return;
 
-                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.transform.rotation = (Quaternion.LookRotation(-obj.hitDir) * target.HitEffect.transform.parent.localRotation).normalized;
                     target.HitEffect.Play();
 
                     source.clip = target.clip;
@@ -74,6 +76,21 @@ public class TestHitEffect : MonoBehaviour
         {
             switch (obj.Origin)
             {
+                case SpecialEnemyTypeA special:
+                {
+                    var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Enemy && data.AttackerEnemyType == EnemyType.SpecialA);
+                    if (target == null)
+                        return;
+
+                    target.HitEffect.transform.LookAt(transform.position - obj.hitDir);
+                    target.HitEffect.Play();
+
+                    source.clip = target.clip;
+                    source.volume = target.clipVolume;
+                    source.Play();
+                    break;
+                }
+
                 case TestEnemy enemy:
                 {
                     var target = Effects.Find((data) => data.AttackerEntityType == TestEntity.EntityType.Enemy && data.AttackerEnemyType == enemy.MyEnemyType);

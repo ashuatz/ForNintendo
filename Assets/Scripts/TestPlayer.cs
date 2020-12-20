@@ -46,6 +46,16 @@ public class TestPlayer : TestEntity
     [SerializeField]
     private Transform ProbeRoot;
 
+    [SerializeField]
+    private LineRenderer Bullet;
+    [SerializeField]
+    private Gradient DefaultBulletGradient;
+
+    [SerializeField]
+    private ParticleSystem ProbeMuzzleEffect;
+
+
+
     private CoroutineWrapper probeRotationWrapper;
 
     private Notifier<bool> OnclickShot = new Notifier<bool>();
@@ -54,18 +64,26 @@ public class TestPlayer : TestEntity
 
     public Notifier<int> BuildIndex = new Notifier<int>();
 
+
     public event Action OnShot;
     private float ClickTime = 0f;
 
     private NavMeshPath path;
 
+    private CoroutineWrapper BulletWrapper;
     private CoroutineWrapper attackDelayWrapper;
     private CoroutineWrapper markerRoutine;
 
     private void Start()
     {
+        Bullet.gameObject.SetActive(false);
         path = new NavMeshPath();
         DataContainer.Instance.Player.CurrentData = this;
+
+        foreach (var minion in Minions)
+        {
+            minion.OnDead += Minion_OnDead;
+        }
 
         probeAnimator.SetFloat("AttackSpeed", 12f / (30 * AttackDelay));
 
@@ -75,9 +93,25 @@ public class TestPlayer : TestEntity
         animator.speed = 0.85f;
         probeAnimator.speed = 0.85f;
 
+        BulletWrapper = CoroutineWrapper.Generate(this);
         attackDelayWrapper = CoroutineWrapper.Generate(this);
         markerRoutine = CoroutineWrapper.Generate(this);
         probeRotationWrapper = CoroutineWrapper.Generate(this);
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        GlobalFadeCanvas.Instance.On(() => UnityEngine.SceneManagement.SceneManager.LoadScene(0));
+    }
+
+    private void Minion_OnDead(TestEntity obj)
+    {
+        var minion = obj as TestMinion;
+        Minions.Remove(minion);
+        minion.gameObject.SetActive(false);
+
+        DeadEffectManager.Instance.PlayMinion(obj, Vector3.one * 2f);
     }
 
     private void OnclickShot_OnDataChanged(bool isShot)
@@ -297,7 +331,7 @@ public class TestPlayer : TestEntity
                     var hits = Physics.RaycastAll(transform.position.ToXZ().ToVector3FromXZ(), dir.ToVector3FromXZ().normalized, 50, 1 << LayerMask.NameToLayer("Default"));
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
-                        .Where(entity => entity != null && entity.Type == EntityType.Enemy).ToList();
+                        .Where(entity => entity != null && entity.Type == EntityType.Enemy && entity.HP.CurrentData > 0).ToList();
 
                     if (entities != null && entities.Count > 0)
                     {
@@ -319,6 +353,8 @@ public class TestPlayer : TestEntity
                         else
                         {
                             target.TakeDamage(info);
+                            ProbeMuzzleEffect.Play();
+                            BulletWrapper.StartSingleton(BulletEffect(0.1f, info));
                         }
                     }
 
@@ -350,6 +386,31 @@ public class TestPlayer : TestEntity
 
             yield return YieldInstructionCache.WaitForSeconds(AttackDelay);
             target.TakeDamage(info);
+
+            ProbeMuzzleEffect.Play();
+
+            BulletWrapper.StartSingleton(BulletEffect(0.1f, info));
+        }
+
+        IEnumerator BulletEffect(float moveDelay, HitInfo info)
+        {
+            Bullet.positionCount = 2;
+            Bullet.SetPosition(0, ProbeMuzzleEffect.transform.position);
+            Bullet.SetPosition(1, info.Destination.transform.position);
+
+            Bullet.gameObject.SetActive(true);
+
+            float t = 0;
+            while (t < moveDelay)
+            {
+                var gradient = Bullet.colorGradient;
+                var keys = DefaultBulletGradient.alphaKeys.Select(new Func<GradientAlphaKey, GradientAlphaKey>((key) => new GradientAlphaKey(key.alpha * t / moveDelay, key.time))).ToArray();
+                gradient.SetKeys(gradient.colorKeys, keys);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            Bullet.gameObject.SetActive(false);
         }
     }
 

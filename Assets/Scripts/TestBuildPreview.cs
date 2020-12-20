@@ -6,8 +6,7 @@ using Util;
 
 public class TestBuildPreview : MonoSingleton<TestBuildPreview>
 {
-    [SerializeField]
-    private TestPlayer player;
+    private TestPlayer player { get => DataContainer.Instance.Player.CurrentData; }
 
     [SerializeField]
     private Transform PreviewRoot;
@@ -56,7 +55,15 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
     {
         base.Awake();
 
-        player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
+        if (DataContainer.Instance.Player.CurrentData != null)
+        {
+            player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
+        }
+        else
+        {
+            DataContainer.Instance.Player.OnDataChangedOnce += player => player.BuildIndex.OnDataChanged += BuildIndex_OnDataChanged;
+        }
+
         InputManager.Instance.MouseWorldXZ.OnDataChanged += MouseWorldXZ_OnDataChanged;
     }
 
