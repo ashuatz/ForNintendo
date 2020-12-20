@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyType: 1
-  DefaultHP: 500
+  DefaultHP: 315
   Damage: 10
   AttackDelay: 0.3
   ActionDistance: 20
