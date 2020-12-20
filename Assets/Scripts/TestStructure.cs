@@ -69,7 +69,7 @@ public class TestStructure : TestEntity
     protected override void Dead()
     {
         WorldData.Instance.RemoveStructure(this);
-        DeadEffectManager.Instance.Play(this, Vector3.one);
+        DeadEffectManager.Instance.PlayStructure(this, Vector3.one);
         enabled = false;
         gameObject.SetActive(false);
     }

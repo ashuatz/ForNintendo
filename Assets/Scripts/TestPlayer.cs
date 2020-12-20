@@ -67,6 +67,11 @@ public class TestPlayer : TestEntity
         path = new NavMeshPath();
         DataContainer.Instance.Player.CurrentData = this;
 
+        foreach(var minion in Minions)
+        {
+            minion.OnDead += Minion_OnDead;
+        }
+
         probeAnimator.SetFloat("AttackSpeed", 12f / (30 * AttackDelay));
 
         OnclickShot.OnDataChanged += OnclickShot_OnDataChanged;
@@ -78,6 +83,15 @@ public class TestPlayer : TestEntity
         attackDelayWrapper = CoroutineWrapper.Generate(this);
         markerRoutine = CoroutineWrapper.Generate(this);
         probeRotationWrapper = CoroutineWrapper.Generate(this);
+    }
+
+    private void Minion_OnDead(TestEntity obj)
+    {
+        var minion = obj as TestMinion;
+        Minions.Remove(minion);
+        minion.gameObject.SetActive(false);
+
+        DeadEffectManager.Instance.PlayMinion(obj, Vector3.one * 2f);
     }
 
     private void OnclickShot_OnDataChanged(bool isShot)
