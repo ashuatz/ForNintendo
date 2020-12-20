@@ -46,6 +46,16 @@ public class TestPlayer : TestEntity
     [SerializeField]
     private Transform ProbeRoot;
 
+    [SerializeField]
+    private LineRenderer Bullet;
+    [SerializeField]
+    private Gradient DefaultBulletGradient;
+
+    [SerializeField]
+    private ParticleSystem ProbeMuzzleEffect;
+
+
+
     private CoroutineWrapper probeRotationWrapper;
 
     private Notifier<bool> OnclickShot = new Notifier<bool>();
@@ -54,20 +64,23 @@ public class TestPlayer : TestEntity
 
     public Notifier<int> BuildIndex = new Notifier<int>();
 
+
     public event Action OnShot;
     private float ClickTime = 0f;
 
     private NavMeshPath path;
 
+    private CoroutineWrapper BulletWrapper;
     private CoroutineWrapper attackDelayWrapper;
     private CoroutineWrapper markerRoutine;
 
     private void Start()
     {
+        Bullet.gameObject.SetActive(false);
         path = new NavMeshPath();
         DataContainer.Instance.Player.CurrentData = this;
 
-        foreach(var minion in Minions)
+        foreach (var minion in Minions)
         {
             minion.OnDead += Minion_OnDead;
         }
@@ -80,6 +93,7 @@ public class TestPlayer : TestEntity
         animator.speed = 0.85f;
         probeAnimator.speed = 0.85f;
 
+        BulletWrapper = CoroutineWrapper.Generate(this);
         attackDelayWrapper = CoroutineWrapper.Generate(this);
         markerRoutine = CoroutineWrapper.Generate(this);
         probeRotationWrapper = CoroutineWrapper.Generate(this);
@@ -333,6 +347,8 @@ public class TestPlayer : TestEntity
                         else
                         {
                             target.TakeDamage(info);
+                            ProbeMuzzleEffect.Play();
+                            BulletWrapper.StartSingleton(BulletEffect(0.1f, info));
                         }
                     }
 
@@ -364,6 +380,31 @@ public class TestPlayer : TestEntity
 
             yield return YieldInstructionCache.WaitForSeconds(AttackDelay);
             target.TakeDamage(info);
+
+            ProbeMuzzleEffect.Play();
+
+            BulletWrapper.StartSingleton(BulletEffect(0.1f, info));
+        }
+
+        IEnumerator BulletEffect(float moveDelay, HitInfo info)
+        {
+            Bullet.positionCount = 2;
+            Bullet.SetPosition(0, ProbeMuzzleEffect.transform.position);
+            Bullet.SetPosition(1, info.Destination.transform.position);
+
+            Bullet.gameObject.SetActive(true);
+
+            float t = 0;
+            while (t < moveDelay)
+            {
+                var gradient = Bullet.colorGradient;
+                var keys = DefaultBulletGradient.alphaKeys.Select(new Func<GradientAlphaKey, GradientAlphaKey>((key) => new GradientAlphaKey(key.alpha * t / moveDelay, key.time))).ToArray();
+                gradient.SetKeys(gradient.colorKeys, keys);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            Bullet.gameObject.SetActive(false);
         }
     }
 
