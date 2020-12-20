@@ -29,6 +29,24 @@ public class TestNPC : TestEntity
         ProbePosition.OnDataChanged += ProbePosition_OnDataChanged;
         HP.CurrentData = DefaultHP;
     }
+    protected override void Dead()
+    {
+        base.Dead();
+        StartCoroutine(GotoHome(1f));
+    }
+
+    private IEnumerator GotoHome(float runtime)
+    {
+        //fade out
+        float t = 0;
+        while (t < runtime)
+        {
+
+            t += Time.deltaTime;
+            yield return null;
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 
     private void ProbePosition_OnDataChanged(Vector3 obj)
     {

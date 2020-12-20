@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayUI.unity
     guid: d8b5378eca96cef41b9033413d104c41
+  - enabled: 1
+    path: Assets/Scenes/Lighting.unity
+    guid: 96b52998f00cd0e4bb105ba4586566bc
   m_configObjects: {}

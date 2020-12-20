@@ -5,15 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    AsyncOperation loadSceneOperation;
+    private bool isComplete;
+    private IEnumerator Start()
+    {
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+
+        loadSceneOperation = SceneManager.LoadSceneAsync(1);
+        loadSceneOperation.allowSceneActivation = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<TestPlayer>(out var player))
+        if (other.TryGetComponent<TestPlayer>(out var player))
         {
-            SceneManager.LoadScene(1);
-            SceneManager.LoadScene(2,LoadSceneMode.Additive);
-            SceneManager.LoadScene(3,LoadSceneMode.Additive);
-            SceneManager.LoadScene(4,LoadSceneMode.Additive);
+
+            loadSceneOperation.allowSceneActivation = true;
         }
     }
 }
