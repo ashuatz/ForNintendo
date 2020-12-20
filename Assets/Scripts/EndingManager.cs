@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EndingManager : MonoBehaviour
 {
+    public static EndingManager _EndingManager { get; private set; }
+
     [SerializeField] TimerUI _timer;
 
     [SerializeField] Image _background;
@@ -26,10 +28,11 @@ public class EndingManager : MonoBehaviour
 
     void Awake()
     {
+        _EndingManager = this;
         _IsEnding = false;
     }
 
-    IEnumerator Ending()
+    public IEnumerator Ending()
     {
         _IsEnding = true;
 

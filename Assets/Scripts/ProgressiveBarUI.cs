@@ -17,7 +17,7 @@ public class ProgressiveBarUI : MonoBehaviour
 
     public Dictionary<int, Transform> DefenseSectors = new Dictionary<int, Transform>();
 
-    private int ClearIndex = 0;
+    public int ClearIndex { get; private set; }
 
     private Sector[] sectors;
 
@@ -25,11 +25,14 @@ public class ProgressiveBarUI : MonoBehaviour
 
     public bool _onBar = true;
 
+    private void Awake()
+    {
+        ClearIndex = -1;
+    }
+
     void Start()
     {
         DataContainer.Instance.ProgressBarUI.CurrentData = this;
-
-        ClearIndex = -1;
 
         sectors = SpawnerParent._Sectors;
         foreach (var sector in sectors)
