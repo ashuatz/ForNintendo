@@ -12,15 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Arrangement.unity
     guid: d274fc29a2db0d34287f507f42b3668d
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 8feb003afdfa0954fb2f57de85554dc8
-  - enabled: 1
-    path: Assets/Scenes/LogicScene.unity
-    guid: d6dbb0bc5ac0a6b459323058be0d7c59
-  - enabled: 1
-    path: Assets/Scenes/PlayUI.unity
-    guid: d8b5378eca96cef41b9033413d104c41
-  - enabled: 1
     path: Assets/Scenes/Lighting.unity
     guid: 96b52998f00cd0e4bb105ba4586566bc
   m_configObjects: {}
