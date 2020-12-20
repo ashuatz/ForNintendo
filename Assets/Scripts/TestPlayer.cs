@@ -22,6 +22,9 @@ public class TestPlayer : TestEntity
     private float AttackDelay;
     private float LastAttackTime;
 
+    [SerializeField]
+    private float ActionDistance = 20f;
+
     [Header("Pre-defined Property")]
     [SerializeField]
     private TestBuildPreview Viewer;
@@ -62,6 +65,7 @@ public class TestPlayer : TestEntity
     private void Start()
     {
         path = new NavMeshPath();
+        DataContainer.Instance.Player.CurrentData = this;
 
         probeAnimator.SetFloat("AttackSpeed", 12f / (30 * AttackDelay));
 
@@ -154,7 +158,7 @@ public class TestPlayer : TestEntity
             BuildIndex.CurrentData = 3;
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             BuildIndex.CurrentData = -1;
         }
@@ -212,7 +216,7 @@ public class TestPlayer : TestEntity
                 Agent.SetPath(path);
                 Agent.isStopped = false;
             }
-            
+
 
             //Agent.SetDestination(pos);
             //Agent.isStopped = false;
@@ -232,12 +236,18 @@ public class TestPlayer : TestEntity
         {
             if (BuildIndex.CurrentData != 0)
             {
+                var position = InputManager.Instance.MouseWorldXZ.CurrentData;
 
-                if(BuildIndex.CurrentData < 0)
+                if (Vector2.Distance(position, transform.position.ToXZ()) > ActionDistance)
+                {
+                    BuildIndex.CurrentData = 0;
+                    return;
+                }
+
+                if (BuildIndex.CurrentData < 0)
                 {
                     OnclickShot.CurrentData = false;
 
-                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
                     if (Viewer.TryGetStructure(position, out var structure))
                     {
                         var dir = (structure.transform.position.ToXZ() - transform.position.ToXZ()).normalized;
@@ -254,7 +264,6 @@ public class TestPlayer : TestEntity
                 {
                     OnclickShot.CurrentData = false;
 
-                    var position = InputManager.Instance.MouseWorldXZ.CurrentData;
                     if (Viewer.CheckBuildAllow(BuildIndex.CurrentData, position))
                     {
                         var currentMinion = GetCurrentMinion;
@@ -279,7 +288,6 @@ public class TestPlayer : TestEntity
                 var position = InputManager.Instance.MouseWorldXZ.CurrentData;
                 var dir = position - transform.position.ToXZ();
 
-
                 ProbeRoot.rotation = Quaternion.Euler(Quaternion.LookRotation(dir.ToVector3FromXZ().normalized).eulerAngles + Quaternion.Euler(0, 90, 0).eulerAngles);
 
                 if (LastAttackTime + AttackDelay < Time.time)
@@ -290,11 +298,14 @@ public class TestPlayer : TestEntity
                     var entities = hits
                         .Select(new Func<RaycastHit, TestEntity>(hit => hit.transform.GetComponent<TestEntity>()))
                         .Where(entity => entity != null && entity.Type == EntityType.Enemy).ToList();
-                    
 
                     if (entities != null && entities.Count > 0)
                     {
                         var target = entities.First();
+
+                        if (Vector2.Distance(target.transform.position.ToXZ(), transform.position.ToXZ()) > ActionDistance)
+                            return;
+
                         var info = new HitInfo();
                         info.Amount = Damage;
                         info.Origin = this;

@@ -1,46 +1,93 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Util;
 
 public class ProgressiveBarUI : MonoBehaviour
 {
-    [SerializeField] Image[] _progressiveBar;
+    [SerializeField]
+    private List<Image> DefenseProgressBars;
+    [SerializeField]
+    private List<Image> ClearMarkers;
 
-    Sector[] _sector;
+    [SerializeField]
+    private List<Image> MovementProgressBars;
 
-    int[] _maxEnemy;
-    int[] _killEnemy;
+    public Dictionary<int, Transform> DefenseSectors = new Dictionary<int, Transform>();
 
-    int _sectorMany;
+    private int ClearIndex = 0;
+
+    private Sector[] sectors;
+
+    private List<int> maxCount = new List<int>();
 
     public bool _onBar = true;
 
     void Start()
     {
-        _sector = SpawnerParent._Sectors;
+        DataContainer.Instance.ProgressBarUI.CurrentData = this;
 
-        _sectorMany = _sector.Length;
-        _maxEnemy = new int[_sectorMany];
+        ClearIndex = -1;
 
-        for (int i = 0; i < _sectorMany; i++)
-            _maxEnemy[i] = _sector[i]._maxEnemy;
+        sectors = SpawnerParent._Sectors;
+        foreach (var sector in sectors)
+        {
+            maxCount.Add(sector._maxEnemy);
+        }
+
+        foreach (var progress in DefenseProgressBars) progress.fillAmount = 0;
+        foreach (var progress in MovementProgressBars) progress.fillAmount = 0;
+        foreach (var marker in ClearMarkers) marker.gameObject.SetActive(false);
     }
 
     void Update()
     {
         if (_onBar)
-            DrawProgressiveBar();
+        {
+            DrawDefenseProgressBar();
+        }
+
+        if (ClearIndex >= 0)
+        {
+            DrawMoveProgressBar();
+        }
     }
 
-    void DrawProgressiveBar()
+    void DrawDefenseProgressBar()
     {
-        for (int i = 0; i < _progressiveBar.Length; i++)
+        for (int i = ClearIndex + 1; i < DefenseProgressBars.Count; i++)
         {
-            int kill = 0;
-            for (int j = 0; j < _sector[i]._spawners.Length; j++)
-                kill += _sector[i]._spawners[j]._killEnemy;
-            _progressiveBar[i].fillAmount = (float)kill / _maxEnemy[i];
+            var kill = sectors[i]._spawners.Sum(new System.Func<TestEnemySpawner_New, int>((spawner) => spawner._killEnemy));
+
+            var amount = (float)kill / maxCount[i];
+            DefenseProgressBars[i].fillAmount = amount;
+            if (amount == 1 || Mathf.Approximately(amount, 1))
+            {
+                ClearIndex = i;
+                ClearMarkers[ClearIndex].gameObject.SetActive(true);
+            }
         }
+    }
+
+    void DrawMoveProgressBar()
+    {
+        if (ClearIndex >= MovementProgressBars.Count)
+            return;
+
+        var targetProgressBar = MovementProgressBars[ClearIndex];
+
+        if (targetProgressBar.fillAmount == 1 || Mathf.Approximately(targetProgressBar.fillAmount, 1))
+            return;
+
+        var prev = DefenseSectors[ClearIndex];
+        var next = DefenseSectors[ClearIndex + 1];
+
+        var amount =
+            Vector2.Distance(DataContainer.Instance.Player.CurrentData.transform.position.ToXZ(), next.transform.position.ToXZ()) /
+            Vector2.Distance(prev.transform.position.ToXZ(), next.transform.position.ToXZ());
+
+        targetProgressBar.fillAmount = 1 - amount;
     }
 }

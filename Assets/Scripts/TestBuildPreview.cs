@@ -15,6 +15,9 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
     [SerializeField]
     private List<GameObject> BuildObjects;
 
+    [SerializeField]
+    private GameObject Remover;
+
 
     [SerializeField]
     private List<Collider> BuildTester;
@@ -98,6 +101,8 @@ public class TestBuildPreview : MonoSingleton<TestBuildPreview>
 
     private void BuildIndex_OnDataChanged(int obj)
     {
+        Remover.SetActive(obj == -1);
+
         for (int i = 0; i < BuildObjects.Count; ++i)
         {
             BuildObjects[i].SetActive(i == (obj - 1));

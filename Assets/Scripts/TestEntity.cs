@@ -25,6 +25,19 @@ public class TestEntity : MonoBehaviour
 
     private bool isDead = false;
 
+    public TestEntity()
+    {
+        HP.OnDataChanged += HP_OnDataChanged;
+    }
+
+    private void HP_OnDataChanged(float obj)
+    {
+        if (isDead && obj > 0)
+        {
+            isDead = false;
+        }
+    }
+
     public virtual void TakeDamage(HitInfo info)
     {
         HP.CurrentData -= info.Amount;

@@ -62,6 +62,9 @@ public class TestEnemy : TestEntity
 
     public NotifierClass<Transform> AttackTarget = new NotifierClass<Transform>();
 
+
+    public static event System.Action<TestEnemy> OnEnemyDead;
+
     private void Awake()
     {
 
@@ -90,6 +93,18 @@ public class TestEnemy : TestEntity
 
         InitWrapper.StartSingleton(AgentInit());
 
+        switch (MyEnemyType)
+        {
+            case EnemyType.Normal:
+                Animator.Play("Zombi_Run");
+                break;
+
+            case EnemyType.SpecialB:
+                Animator.Play("Zombi_Crawling");
+                break;
+
+        }
+
         IEnumerator AgentInit()
         {
             yield return new WaitUntil(() => Agent.isOnNavMesh);
@@ -109,6 +124,8 @@ public class TestEnemy : TestEntity
         Agent.isStopped = true;
 
         Animator.SetTrigger("Die");
+
+        OnEnemyDead?.Invoke(this);
 
         StartCoroutine(DeleayRelease());
 
