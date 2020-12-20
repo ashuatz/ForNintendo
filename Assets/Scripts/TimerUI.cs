@@ -22,6 +22,7 @@ public class TimerUI : MonoBehaviour
     private string format_tok;
 
     private float currentTime;
+    public float CurrentTime { get { return currentTime; } }
 
     private bool isPause;
 
